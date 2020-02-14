@@ -103,6 +103,11 @@ h1,h2,h3,h4,h5,h6 {
   color: #333333;
 }
 
+p {
+  line-height: 1.5;
+  margin: 6px 0;
+}
+
 .post-preview {
   border-bottom: 1px solid #eeeeee;
 }
