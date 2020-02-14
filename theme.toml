@@ -1,0 +1,12 @@
+name = "harbor"
+license = "MIT"
+licenselink = "https://github.com/matsuyoshi30/harbor/blob/master/LICENSE"
+description = "Simple Weblog"
+homepage = "http://github.com/matsuyoshi30/harbor/"
+tags = ["blog"]
+features = ["simple"]
+min_version = "0.41"
+
+[author]
+  name = "matsuyoshi30"
+  homepage = "https://matsuyoshi30.net"

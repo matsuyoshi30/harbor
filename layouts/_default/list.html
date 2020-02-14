@@ -1,0 +1,24 @@
+{{ define "main" }}
+<div class="container" role="main">
+    <div class="posts-list">
+      {{ $pag := .Paginate (where site.RegularPages "Type" "in" site.Params.mainSections) }}
+      {{ range $pag.Pages }}
+        {{ partial "preview.html" . }}
+      {{ end }}
+    </div>
+    {{ if or (.Paginator.HasPrev) (.Paginator.HasNext) }}
+    <ul class="pager main-pager">
+      {{ if .Paginator.HasPrev }}
+        <li class="previous">
+          <a href="{{ .Permalink }}page/{{ .Paginator.Prev.PageNumber }}/">&larr; Newer</a>
+        </li>
+      {{ end }}
+      {{ if .Paginator.HasNext }}
+        <li class="next">
+          <a href="{{ .Permalink }}page/{{ .Paginator.Next.PageNumber }}/">Older &rarr;</a>
+        </li>
+      {{ end }}
+    </ul>
+  {{ end }}
+</div>
+{{ end }}

@@ -1,0 +1,27 @@
+  <article class="post-preview">
+    <a href="{{ .Permalink }}">
+        <h2 class="post-title">{{ .Title }}</h2>
+    </a>
+
+    <div class="post-entry">
+      {{ if .Truncated }}
+        {{ .Summary }}
+        <a href="{{ .Permalink }}" class="post-read-more">Read More</a>
+      {{ else }}
+        {{ .Content }}
+      {{ end }}
+    </div>
+
+  {{ if .Params.tags }}
+    <div class="blog-tags">
+      {{ range .Params.tags }}
+        <a href="{{ $.Site.LanguagePrefix | absURL }}/tags/{{ . | urlize }}/">{{ . }}</a>&nbsp;
+      {{ end }}
+    </div>
+  {{ else }}
+    <div class="blog-tags">
+      &nbsp;no tag
+    </div>
+  {{ end }}
+
+  </article>

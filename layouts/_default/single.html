@@ -1,0 +1,15 @@
+{{ define "main" }}
+  <div class="container" role="main">
+    <article class="article" class="blog-post">
+      {{ .Content }}
+
+      {{ if .Params.tags }}
+        <div class="blog-tags">
+          {{ range .Params.tags }}
+            <a href="{{ $.Site.LanguagePrefix | absURL }}/tags/{{ . | urlize }}/">{{ . }}</a>&nbsp;
+          {{ end }}
+        </div>
+      {{ end }}
+    </article>
+  </div>
+{{ end }}

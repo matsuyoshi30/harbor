@@ -1,0 +1,36 @@
+{{ if .IsHome }}
+  {{ if .Site.Params.homeTitle }}
+    {{ $.Scratch.Set "title" .Site.Params.homeTitle }}
+  {{ else }}
+    {{ $.Scratch.Set "title" .Site.Title }}
+  {{ end }}
+{{ else }}
+  {{ $.Scratch.Set "title" .Title }}
+{{ end }}
+
+{{ $title := $.Scratch.Get "title" }}
+{{ if $title }}
+  <header>
+    {{ partial "nav.html" . }}
+    <div class="intro-header">
+      <div class="container">
+        <div class="{{ .Type }}-heading">
+          {{ if eq .Type "list" }}
+            <h1>{{ if .Data.Singular }}#{{ end }}{{ .Title }}</h1>
+          {{ else }}
+            <h1>{{ with $title }}{{.}}{{ else }}<br/>{{ end }}</h1>
+          {{ end }}
+          {{ if eq .Type "post" }}
+            <span class="meta-post">
+              <i class="fas fa-calendar"></i>&nbsp;{{ .Lastmod.Format ( .Site.Params.dateformat | default "Jan 2, 2006") }}
+
+              &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;{{ .ReadingTime }}&nbsp;minutes
+            </span>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  </header>
+{{ else }}
+  <div class="intro-header"></div>
+{{ end }}

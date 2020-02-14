@@ -1,0 +1,16 @@
+  <meta charset="utf-8" />
+  <title>{{ block "title" . }}{{ end }}{{ .Site.Title }}</title>
+  {{- with ($.Scratch.Get "Description") }}
+    <meta name="description" content="{{ . }}">
+  {{- end }}
+  {{- with .Site.Author }}
+    <meta name="author" content="{{ . }}"/>
+  {{- end }}
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <!-- Stylesheets -->
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP|Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ .Site.BaseURL }}css/main.css" />
+  <link rel="stylesheet" href="{{ .Site.BaseURL }}css/syntax.css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" integrity="sha384-v8BU367qNbs/aIZIxuivaU55N5GPF89WBerHoGA4QTcbUjYiLQtKdrfXnqAcXyTv" crossorigin="anonymous" />
+  {{ hugo.Generator -}}
