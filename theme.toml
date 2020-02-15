@@ -1,11 +1,11 @@
 name = "harbor"
 license = "MIT"
 licenselink = "https://github.com/matsuyoshi30/harbor/blob/master/LICENSE"
-description = "Simple Weblog"
+description = "Simple and minimal personal blog theme"
 homepage = "http://github.com/matsuyoshi30/harbor/"
-tags = ["blog"]
-features = ["simple"]
-min_version = "0.41"
+tags = ["blog", "minimal", "simple"]
+features = ["minimal", "simple", "responsive", "google analytics integration", "syntax highlight"]
+min_version = "0.41.0"
 
 [author]
   name = "matsuyoshi30"
