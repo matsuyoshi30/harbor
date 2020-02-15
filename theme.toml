@@ -5,7 +5,7 @@ description = "Simple and minimal personal blog theme"
 homepage = "http://github.com/matsuyoshi30/harbor/"
 tags = ["blog", "minimal", "simple"]
 features = ["minimal", "simple", "responsive", "google analytics integration", "syntax highlight"]
-min_version = "0.41.0"
+min_version = "0.41"
 
 [author]
   name = "matsuyoshi30"
