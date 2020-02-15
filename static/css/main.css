@@ -109,6 +109,7 @@ p {
 }
 
 .post-preview {
+  padding-bottom: 10px;
   border-bottom: 1px solid #eeeeee;
 }
 
@@ -121,15 +122,15 @@ p {
   border-bottom: 0;
 }
 
+.postmeta {
+  margin: 10px 0;
+}
+
 .blog-tags {
   font-family: 'Roboto', Helvetica, sans-serif;
   color: #999;
   font-size: 15px;
-  margin-bottom: 30px;
-}
-
-.blog-tags:before {
-  content: "Tags: ";
+  margin: 30px 0;
 }
 
 .blog-tags a {
@@ -142,7 +143,7 @@ p {
   content: "#";
 }
 
-h4.panel-title > span.badge {
+h4.tag-name > span.badge {
     float: right;
 }
 
@@ -359,7 +360,7 @@ footer a {
   }
 
   .blog-tags {
-    margin-top: 10px;
+    margin: 20px 0;
   }
 
   .pager li a {

@@ -21,11 +21,7 @@
             <h1>{{ with $title }}{{.}}{{ else }}<br/>{{ end }}</h1>
           {{ end }}
           {{ if eq .Type "post" }}
-            <span class="meta-post">
-              <i class="fas fa-calendar"></i>&nbsp;{{ .Lastmod.Format ( .Site.Params.dateformat | default "Jan 2, 2006") }}
-
-              &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;{{ .ReadingTime }}&nbsp;minutes
-            </span>
+            {{ partial "postmeta.html" . }}
           {{ end }}
         </div>
       </div>

@@ -2,18 +2,14 @@
 
 <div class="container" role="main">
   <article class="post-preview">
-    <div class="panel-group">
-      {{ range $key, $value := .Data.Terms.ByCount }}
-      <div class="panel panel-default" id="header{{ $value.Name }}">
-        <h4 class="panel-title" >
-        <a href="{{ $.Site.LanguagePrefix | absURL }}/tags/{{ $value.Name | urlize }}/" class="list-group-item view-all">
-          {{ $value.Name }}
-        </a>
-        <span class="badge">{{ $value.Count }}</span>
+    {{ range $index, $term := .Data.Terms.Alphabetical }}
+      <div class="tags">
+        <h4 class="tag-name" >
+          <a href="{{ .Page.Permalink }}/">{{ $term.Name }}</a>
+          <span class="badge">{{ $term.Count }}</span>
         </h4>
       </div>
-      {{ end }}
-    </div>
+    {{ end }}
   </article>
 </div>
 

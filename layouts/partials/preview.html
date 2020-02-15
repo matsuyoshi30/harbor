@@ -7,21 +7,10 @@
       {{ if .Truncated }}
         <p>{{ .Summary }}</p>
         <a href="{{ .Permalink }}" class="post-read-more">Read More</a>
-      {{ else }}
-        {{ .Content }}
       {{ end }}
     </div>
 
-  {{ if .Params.tags }}
-    <div class="blog-tags">
-      {{ range .Params.tags }}
-        <a href="{{ $.Site.LanguagePrefix | absURL }}/tags/{{ . | urlize }}/">{{ . }}</a>&nbsp;
-      {{ end }}
+    <div class="postmeta">
+      {{ partial "postmeta.html" . }}
     </div>
-  {{ else }}
-    <div class="blog-tags">
-      &nbsp;no tag
-    </div>
-  {{ end }}
-
   </article>
