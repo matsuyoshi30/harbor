@@ -128,13 +128,13 @@ p {
 
 .blog-tags {
   font-family: 'Roboto', Helvetica, sans-serif;
-  color: #999;
+  color: #999999;
   font-size: 15px;
   margin: 30px 0;
 }
 
 .blog-tags a {
-  color: #00B;
+  color: #0000BB;
   text-decoration: none;
   padding: 0px 5px;
 }
@@ -295,9 +295,9 @@ code {
   font-weight: 800;
   letter-spacing: 1px;
   padding: 10px 5px;
-  background: #fff;
+  background: #ffffff;
   border-radius: 0;
-  border: 1px solid #ddd;
+  border: 1px solid #dddddd;
   display: inline-block;
   color: #404040;
   text-decoration: none;
@@ -321,6 +321,7 @@ footer {
   padding: 60px 0;
   text-align: center;
   margin-top: auto;
+  color: #505050;
   font-size: 14px;
   font-family: 'Roboto', Helvetica, sans-serif;
 }
@@ -337,7 +338,8 @@ footer .theme-by {
 }
 
 footer a {
-  color: #404040;
+  color: #050505;
+  font-weight: bold;
 }
 
 @media (min-width: 600px) {
@@ -369,9 +371,5 @@ footer a {
 
   .pager.blog-pager  {
     margin-top: 40px;
-  }
-
-  .footer-links {
-    font-size: inherit;
   }
 }
