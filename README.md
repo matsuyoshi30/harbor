@@ -1,7 +1,5 @@
 # harbor - Simple Hugo Theme
 
-## What is this?
-
 Simple and minimal personal blog theme for [Hugo](https://gohugo.io/).
 
 ## Screenshot
@@ -41,6 +39,8 @@ languageCode = "en"
 DefaultContentLanguage = "en"
 enableInlineShortcodes = true
 footnoteReturnLinkContents = "^"
+
+googleAnalytics = "UA-XXXXXXXX-XX" # Optional
 
 [Author]
   name = "Hugo Author"
