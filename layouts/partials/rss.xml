@@ -1,0 +1,25 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>{{ with .Title }}{{.}} on {{ end }}{{ .Site.Title }}</title>
+		<link>{{ .Permalink }}</link>
+		<description>Recent content {{ with .Title }}in {{.}} {{ end }}on {{ .Site.Title }}</description>
+		<generator>Hugo -- gohugo.io</generator>
+		{{ with .Site.LanguageCode }}
+  		<language>{{.}}</language>
+		{{end}}
+		<managingEditor>{{.}}{{ with $.Site.Author.name }} ({{.}}){{end}}</managingEditor>
+    {{ if not .Date.IsZero }}
+  		<lastBuildDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</lastBuildDate>
+		{{ end }}
+		<atom:link href="{{.URL}}" rel="self" type="application/rss+xml" />
+		{{ range first 10 .Data.Pages }}
+  		<item>
+	  		<title>{{ .Title }}</title>
+  			<link>{{ .Permalink }}</link>
+  			<pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</pubDate>
+   			<guid>{{ .Permalink }}</guid>
+  			<description>{{ .Summary | html }}</description>
+  		</item>
+		{{ end }}
+	</channel>
+</rss>
