@@ -1,1 +1,1 @@
-# harbor
+# harbor - Simple Hugo Theme
