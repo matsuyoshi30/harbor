@@ -1,10 +1,5 @@
 {{ define "main" }}
 <div class="container" role="main">
-    {{ with .Content }}
-      <div class="well">
-        {{.}}
-      </div>
-    {{ end }}
     <div class="posts-list">
       {{ if .IsHome }}
         {{ $pag := .Paginate (where site.RegularPages "Type" "in" site.Params.mainSections) }}
