@@ -13,6 +13,7 @@ Simple and minimal personal blog theme for [Hugo](https://gohugo.io/).
 - Support tags
 - Google Analytics integration
 - Responsive
+- Dark mode
 - Syntax Highlight (see [Hugo doc](https://gohugo.io/content-management/syntax-highlighting/))
 
 ## Installation & Update
