@@ -2,12 +2,6 @@
 
 Simple and minimal personal blog theme for [Hugo](https://gohugo.io/).
 
-## Screenshot
-
-![Screenshot](./images/screenshot.png)
-
-![Screenshot Responsive](./images/screenshot-responsive.png)
-
 ## Features
 
 - Support tags
