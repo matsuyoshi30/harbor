@@ -342,6 +342,10 @@ footer a {
   font-weight: bold;
 }
 
+footer i {
+  cursor: pointer;
+}
+
 @media (min-width: 600px) {
   .header {
     margin: auto;

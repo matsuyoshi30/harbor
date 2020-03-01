@@ -7,9 +7,9 @@
   setTheme(savedTheme);
 
   toggle.addEventListener("click", () => {
-    if (toggle.className === "Dark") {
+    if (toggle.className === "fas fa-moon") {
         setTheme("dark");
-    } else if (toggle.className === "Light") {
+    } else if (toggle.className === "fas fa-sun") {
         setTheme("light");
     }
   });
@@ -19,12 +19,10 @@
 
     if (mode === "dark") {
         darkTheme.disabled = false;
-        toggle.className = "Light";
-        toggle.text = "Light";
+        toggle.className = "fas fa-sun";
     } else if (mode === "light") {
         darkTheme.disabled = true;
-        toggle.className = "Dark";
-        toggle.text = "Dark";
+        toggle.className = "fas fa-moon";
     }
   }
 </script>
