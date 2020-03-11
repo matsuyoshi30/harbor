@@ -27,6 +27,7 @@ If you want to know more information, see [Hugo doc](https://gohugo.io/themes/in
 ## `config.toml` example
 
 ```
+themes = "harbor"
 baseurl = "https://example.com/"
 title = "Hugo Themes"
 paginate = 3
