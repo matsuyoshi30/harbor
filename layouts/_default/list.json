@@ -1,9 +1,11 @@
-[{{ range $index, $page := .Pages }}{{ if ne $index 0 }},{{ end }}
-    {
-        "ref": "{{ $page.Permalink }}",
-        "title": {{ $page.Title | jsonify }},
-        "section": "{{ $page.Section }}",
-        "date" : {{ $page.Date.Format "2006.01.02" | jsonify }},
-        "body": {{ $page.Plain | jsonify }}
-    }
-{{ end }}]
+[
+    {{ range $index, $page := .Pages }}{{ if ne $index 0 }},{{ end }}
+        {
+            "ref": "{{ $page.Permalink }}",
+            "title": {{ $page.Title | jsonify }},
+           "section": "{{ $page.Section }}",
+            "date" : {{ $page.Date.Format "2006.01.02" | jsonify }},
+            "body": {{ $page.Plain | jsonify }}
+        }
+    {{ end }}
+]

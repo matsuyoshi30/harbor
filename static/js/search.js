@@ -6,7 +6,7 @@ var pagesIndex
  * Preparation for using lunr.js
  */
 function initLunr () {
-  $.getJSON('post/index.json').done(function (index) {
+  $.getJSON('../post/index.json').done(function (index) {
     pagesIndex = index
     lunrIndex = lunr(function () {
       this.use(lunr.ja)
@@ -39,12 +39,6 @@ function search (query) {
 }
 
 function initUI () {
-    // Clear query when clear icon is clicked
-    $('#searchBoxIcon').click(function () {
-        $('#searchBox').val('')
-        $('#searchBox').trigger('keyup')
-    })
-
     // Event when changing query
     $('#searchBox').keyup(function () {
         var $searchResults = $('#searchResults')
