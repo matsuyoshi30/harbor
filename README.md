@@ -9,6 +9,7 @@ Simple and minimal personal blog theme for [Hugo](https://gohugo.io/).
 - Responsive
 - Dark mode
 - Syntax Highlight (see [Hugo doc](https://gohugo.io/content-management/syntax-highlighting/))
+- Search entire blog posts
 
 ## Installation & Update
 
@@ -41,16 +42,25 @@ googleAnalytics = "UA-XXXXXXXX-XX" # Optional
 [Author]
   name = "Hugo Author"
 
-[[menu.main]]
+[[params.nav]]
   identifier = "about"
   name = "About"
+  icon = "fas fa-user"
   url = "/about/"
   weight = 3
 
-[[menu.main]]
+[[params.nav]]
   identifier = "tags"
   name = "Tags"
+  icon = "fas fa-tag"
   url = "tags"
+  weight = 3
+
+[[params.nav]]
+  identifier = "search"
+  name = "Search"
+  icon = "fas fa-search"
+  url = "search"
   weight = 3
 
 [params.logo]
@@ -58,6 +68,18 @@ googleAnalytics = "UA-XXXXXXXX-XX" # Optional
   width = 50
   height = 50
   alt = "Logo"
+```
+
+### Search entire blog posts
+
+You should make ```content/page/search.md```.
+
+```
+---
+title: "Search"
+---
+
+{{<search>}}
 ```
 
 ## Frontmatter example
