@@ -10,16 +10,28 @@ footnoteReturnLinkContents = "^"
 [Author]
   name = "hugo author"
 
-[[menu.main]]
+[outputs]
+    section = ["JSON", "HTML"]
+
+[[params.nav]]
   identifier = "about"
   name = "About"
+  icon = "fas fa-user fa-lg"
   url = "/about/"
-  weight = 10
+  weight = 3
 
-[[menu.main]]
+[[params.nav]]
   identifier = "tags"
   name = "Tags"
-  url = "/tags/"
+  icon = "fas fa-tag fa-lg"
+  url = "tags"
+  weight = 3
+
+[[params.nav]]
+  identifier = "search"
+  name = "Search"
+  icon = "fas fa-search fa-lg"
+  url = "search"
   weight = 3
 
 [params]

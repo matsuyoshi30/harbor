@@ -1,4 +1,4 @@
-# harbor - Simple Hugo Theme
+# [harbor](https://themes.gohugo.io/harbor/) - Simple Hugo Theme
 
 Simple and minimal personal blog theme for [Hugo](https://gohugo.io/).
 
@@ -42,24 +42,27 @@ googleAnalytics = "UA-XXXXXXXX-XX" # Optional
 [Author]
   name = "Hugo Author"
 
+[outputs]
+  section = ["JSON", "HTML"]
+
 [[params.nav]]
   identifier = "about"
   name = "About"
-  icon = "fas fa-user"
+  icon = "fas fa-userfa-lg"
   url = "/about/"
   weight = 3
 
 [[params.nav]]
   identifier = "tags"
   name = "Tags"
-  icon = "fas fa-tag"
+  icon = "fas fa-tag fa-lg"
   url = "tags"
   weight = 3
 
 [[params.nav]]
   identifier = "search"
   name = "Search"
-  icon = "fas fa-search"
+  icon = "fas fa-search fa-lg"
   url = "search"
   weight = 3
 
@@ -72,7 +75,7 @@ googleAnalytics = "UA-XXXXXXXX-XX" # Optional
 
 ### Search entire blog posts
 
-You should make ```content/page/search.md```.
+You should make ```search.md``` in content directory.
 
 ```
 ---
