@@ -10,6 +10,7 @@ Simple and minimal personal blog theme for [Hugo](https://gohugo.io/).
 - Dark mode
 - Syntax Highlight (see [Hugo doc](https://gohugo.io/content-management/syntax-highlighting/))
 - Search entire blog posts
+- Table Of Contents
 
 ## Installation & Update
 
@@ -85,6 +86,10 @@ title: "Search"
 {{<search>}}
 ```
 
+### TOC
+
+If you want to use TableOfContent, you need to write words greater than 400, and set `true` frontmatter `toc`.
+
 ## Frontmatter example
 
 ```
@@ -93,7 +98,14 @@ title = "Article title here"
 date = 2020-02-15T20:00:00+09:00
 tags = ["tags here"]
 draft = false
+toc = false
 +++
+
+# Title
+
+<!-- when toc is true and post wordcounts is greater than 400 -->
+
+## Contents
 ```
 
 ## LICENSE
