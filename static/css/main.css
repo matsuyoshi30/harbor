@@ -107,6 +107,22 @@ h1,h2,h3,h4,h5,h6 {
   color: #333333;
 }
 
+#TableOfContents {
+  font-size: 14px;
+  border: 2px dotted #cccccc;
+  margin: 1em 0;
+  padding: 0.5em 0;
+  background-color: #f0f0f0;
+}
+
+#TableOfContents ul { 
+  list-style-type: none; 
+}
+
+#TableOfContents ul ul { 
+  list-style-type: disc; 
+}
+
 p {
   line-height: 1.5;
   margin: 6px 0;
