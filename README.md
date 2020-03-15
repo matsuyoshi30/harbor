@@ -26,7 +26,11 @@ $ git submodule update --remote --merge
 
 If you want to know more information, see [Hugo doc](https://gohugo.io/themes/installing/).
 
-## `config.toml` example
+## Usage
+
+When you manually create files by following [quick start (step4)](https://gohugo.io/getting-started/quick-start/#step-4-add-some-content), you should command `hugo new post/<filename>.md` instead of `hugo new posts/<filename>.md` because some styles are specified by the class name (like `post-heading`) in the [main.css](./static/css/main.css).
+
+### `config.toml` example
 
 ```
 themes = "harbor"
