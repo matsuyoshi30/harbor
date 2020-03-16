@@ -2,11 +2,11 @@
 
 <div class="container" role="main">
   <article class="post-preview">
-    {{ range $index, $term := .Data.Terms.Alphabetical }}
-      <div class="tags">
-        <h4 class="tag-name" >
-          <a href="{{ .Page.Permalink }}/">{{ $term.Name }}</a>
-          <span class="badge">{{ $term.Count }}</span>
+    {{ range .Data.Terms.Alphabetical }}
+      <div class="terms">
+        <h4 class="term-name" >
+          <a href="{{ .Page.Permalink }}/">{{ .Page.Title }}</a>
+          <span class="badge">{{ .Count }}</span>
         </h4>
       </div>
     {{ end }}

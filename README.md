@@ -65,6 +65,13 @@ googleAnalytics = "UA-XXXXXXXX-XX" # Optional
   weight = 3
 
 [[params.nav]]
+  identifier = "categories"
+  name = "Category"
+  icon = "fas fa-folder-open fa-lg"
+  url = "categories"
+  weight = 3
+
+[[params.nav]]
   identifier = "search"
   name = "Search"
   icon = "fas fa-search fa-lg"

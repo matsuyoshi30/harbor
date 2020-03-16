@@ -76,13 +76,15 @@ a {
 
 .intro-header .page-heading,
 .intro-header .post-heading,
-.intro-header .tags-heading {
+.intro-header .tags-heading,
+.intro-header .categories-heading {
   text-align: center;
 }
 
 .intro-header .page-heading h1,
 .intro-header .post-heading h1,
-.intro-header .tags-heading h1 {
+.intro-header .tags-heading h1,
+.intro-header .categories-heading h1 {
   margin-top: 0;
   padding-top: 0;
   font-size: 50px;
@@ -163,7 +165,7 @@ p {
   content: "#";
 }
 
-h4.tag-name > span.badge {
+h4.term-name > span.badge {
     float: right;
 }
 
