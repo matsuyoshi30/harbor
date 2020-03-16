@@ -101,6 +101,10 @@ title: "Search"
 
 If you want to use TableOfContent, you need to write words greater than 400, and set `true` frontmatter `toc`.
 
+### Back To Top Button
+
+If you want to use Back To Top Button, you need to write words greater than 400, and set `true` frontmatter `backtotop`.
+
 ## Frontmatter example
 
 ```
@@ -110,6 +114,7 @@ date = 2020-02-15T20:00:00+09:00
 tags = ["tags here"]
 draft = false
 toc = false
+backtotop = false
 +++
 
 # Title
