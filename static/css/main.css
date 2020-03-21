@@ -109,6 +109,10 @@ h1,h2,h3,h4,h5,h6 {
   color: #333333;
 }
 
+.article {
+  text-align: justify;
+}
+
 #TableOfContents {
   font-size: 14px;
   border: 2px dotted #cccccc;
