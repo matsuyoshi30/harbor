@@ -12,16 +12,14 @@
   		<lastBuildDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</lastBuildDate>
 		{{ end }}
 		<atom:link href="{{.URL}}" rel="self" type="application/rss+xml" />
-		{{ range first 10 .Site.Pages }}
-      	{{ if eq .Type "post" }}
-    		<item>
-   	  	<title>{{ .Title }}</title>
-  		  	<link>{{ .Permalink }}</link>
-    			<pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</pubDate>
-   	  		<guid>{{ .Permalink }}</guid>
-  		  	<description>{{ .Summary | html }}</description>
-    		</item>
-      	{{ end }}
+		{{ range first 10 (where (where .Site.Pages ".Section" "post") "Kind" "page") }}
+		<item>
+			<title>{{ .Title }}</title>
+			<link>{{ .Permalink }}</link>
+			<pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</pubDate>
+			<guid>{{ .Permalink }}</guid>
+			<description>{{ .Summary | html }}</description>
+		</item>
 		{{ end }}
 	</channel>
 </rss>
