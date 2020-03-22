@@ -4,6 +4,8 @@
   "description": "Simple and minimal personal blog theme for [Hugo](https://gohugo.io/).",
   "main": "index.js",
   "scripts": {
+    "build-dev": "webpack --config webpack.development.js",
+    "build-prod": "webpack --config webpack.production.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -11,7 +13,8 @@
   "license": "MIT",
   "dependencies": {
     "jquery": "^3.4.1",
-    "lunr": "^2.3.8"
+    "lunr": "^2.3.8",
+    "webpack-merge": "^4.2.2"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
