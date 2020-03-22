@@ -21,7 +21,6 @@
 body {
   font-family: 'Noto Sans JP', sans-serif;
   font-size: 16px;
-  background: #ffffff;
   position: relative;
   margin: 0;
   padding: 0;
@@ -450,7 +449,6 @@ footer {
   padding: 60px 0;
   text-align: center;
   margin-top: auto;
-  color: #505050;
   font-size: 14px;
   font-family: 'Roboto', Helvetica, sans-serif;
 }
