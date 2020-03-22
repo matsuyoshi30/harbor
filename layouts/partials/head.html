@@ -1,8 +1,8 @@
 <meta charset="utf-8" />
 <title>{{ block "title" . }}{{ end }}{{ .Site.Title }}</title>
-{{- with ($.Scratch.Get "Description") }}
-<meta name="description" content="{{ . }}">
-{{- end }}
+{{ with .Site.Params.description }}
+<meta name="description" content="{{ . }}" />
+{{ end }}
 {{- with .Site.Author.Name }}
 <meta name="author" content="{{ . }}"/>
 {{- end }}
