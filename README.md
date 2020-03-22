@@ -2,6 +2,10 @@
 
 Simple and minimal personal blog theme for [Hugo](https://gohugo.io/).
 
+![screenshot](https://user-images.githubusercontent.com/16238709/77252732-3698c880-6c99-11ea-9def-15a5f9b918bc.png)
+
+![screenshot-dart](https://user-images.githubusercontent.com/16238709/77252745-529c6a00-6c99-11ea-95f6-2df83dfff35e.png)
+
 ## Features
 
 - Support tags
