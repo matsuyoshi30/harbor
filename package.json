@@ -1,0 +1,24 @@
+{
+  "name": "harbor",
+  "version": "1.0.0",
+  "description": "Simple and minimal personal blog theme for [Hugo](https://gohugo.io/).",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "matsuyoshi30",
+  "license": "MIT",
+  "dependencies": {
+    "jquery": "^3.4.1",
+    "lunr": "^2.3.8"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
+    "mark.js": "^8.11.1",
+    "webpack": "^4.42.0",
+    "webpack-cli": "^3.3.11"
+  }
+}

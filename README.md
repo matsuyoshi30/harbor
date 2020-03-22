@@ -124,6 +124,15 @@ backtotop = false
 ## Contents
 ```
 
+## Development
+
+1. Install Node.js and npm, the Node.js package manager.
+
+2. The package.json file in your new sub-theme contains the versions of all the Node.js software you need. 
+  To install them run:
+
+        npm install
+
 ## LICENSE
 
 [MIT](./LICENSE).
