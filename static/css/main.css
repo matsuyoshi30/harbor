@@ -1,3 +1,31 @@
+/* noto-sans-jp-regular - japanese_latin */
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/noto-sans-jp-v25-japanese_latin/noto-sans-jp-v25-japanese_latin-regular.eot'); /* IE9 Compat Modes */
+  src: local('Noto Sans Japanese Regular'), local('NotoSansJapanese-Regular'),
+       url('../fonts/noto-sans-jp-v25-japanese_latin/noto-sans-jp-v25-japanese_latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/noto-sans-jp-v25-japanese_latin/noto-sans-jp-v25-japanese_latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/noto-sans-jp-v25-japanese_latin/noto-sans-jp-v25-japanese_latin-regular.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/noto-sans-jp-v25-japanese_latin/noto-sans-jp-v25-japanese_latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/noto-sans-jp-v25-japanese_latin/noto-sans-jp-v25-japanese_latin-regular.svg#NotoSansJP') format('svg'); /* Legacy iOS */
+}
+
+/* roboto-regular - latin */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/roboto-v20-latin/roboto-v20-latin-regular.eot'); /* IE9 Compat Modes */
+  src: local('Roboto'), local('Roboto-Regular'),
+       url('../fonts/roboto-v20-latin/roboto-v20-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/roboto-v20-latin/roboto-v20-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/roboto-v20-latin/roboto-v20-latin-regular.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/roboto-v20-latin/roboto-v20-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/roboto-v20-latin/roboto-v20-latin-regular.svg#Roboto') format('svg'); /* Legacy iOS */
+}
+
 body {
   font-family: 'Noto Sans JP', sans-serif;
   font-size: 16px;
