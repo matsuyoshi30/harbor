@@ -1,3 +1,6 @@
+import lunr, { Token, utils } from 'lunr'
+import $, { getJSON } from 'jquery'
+
 var lunrIndex
 var lunrResult
 var pagesIndex
@@ -9,9 +12,9 @@ var bigramTokeniser = function (obj, metadata) {
 
   if (Array.isArray(obj)) {
     return obj.map(function (t) {
-      return new lunr.Token(
-        lunr.utils.asString(t).toLowerCase(),
-        lunr.utils.clone(metadata)
+      return new Token(
+        utils.asString(t).toLowerCase(),
+        utils.clone(metadata)
       )
     })
   }
@@ -20,11 +23,11 @@ var bigramTokeniser = function (obj, metadata) {
       tokens = []
 
   for(var i = 0; i <= str.length - 2; i++) {
-    var tokenMetadata = lunr.utils.clone(metadata) || {}
+    var tokenMetadata = utils.clone(metadata) || {}
     tokenMetadata["position"] = [i, i + 2]
     tokenMetadata["index"] = tokens.length
     tokens.push(
-      new lunr.Token (
+      new Token (
         str.slice(i, i + 2),
         tokenMetadata
       )
@@ -50,7 +53,7 @@ var queryNgramSeparator = function (query) {
  * Preparation for using lunr.js
  */
 function initLunr () {
-  $.getJSON('../post/index.json').done(function (index) {
+  getJSON('../post/index.json').done(function (index) {
     pagesIndex = index
     lunrIndex = lunr(function () {
       this.tokenizer = bigramTokeniser
