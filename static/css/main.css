@@ -3,13 +3,9 @@
   font-family: 'Noto Sans JP';
   font-style: normal;
   font-weight: 400;
-  src: url('../fonts/noto-sans-jp-v25-japanese_latin/noto-sans-jp-v25-japanese_latin-regular.eot'); /* IE9 Compat Modes */
   src: local('Noto Sans Japanese Regular'), local('NotoSansJapanese-Regular'),
-       url('../fonts/noto-sans-jp-v25-japanese_latin/noto-sans-jp-v25-japanese_latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('../fonts/noto-sans-jp-v25-japanese_latin/noto-sans-jp-v25-japanese_latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
-       url('../fonts/noto-sans-jp-v25-japanese_latin/noto-sans-jp-v25-japanese_latin-regular.woff') format('woff'), /* Modern Browsers */
-       url('../fonts/noto-sans-jp-v25-japanese_latin/noto-sans-jp-v25-japanese_latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
-       url('../fonts/noto-sans-jp-v25-japanese_latin/noto-sans-jp-v25-japanese_latin-regular.svg#NotoSansJP') format('svg'); /* Legacy iOS */
+       url('../fonts/noto-sans-jp-v25-japanese_latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/noto-sans-jp-v25-japanese_latin-regular.woff') format('woff'); /* Modern Browsers */
 }
 
 /* roboto-regular - latin */
@@ -17,13 +13,9 @@
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
-  src: url('../fonts/roboto-v20-latin/roboto-v20-latin-regular.eot'); /* IE9 Compat Modes */
   src: local('Roboto'), local('Roboto-Regular'),
-       url('../fonts/roboto-v20-latin/roboto-v20-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('../fonts/roboto-v20-latin/roboto-v20-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
-       url('../fonts/roboto-v20-latin/roboto-v20-latin-regular.woff') format('woff'), /* Modern Browsers */
-       url('../fonts/roboto-v20-latin/roboto-v20-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
-       url('../fonts/roboto-v20-latin/roboto-v20-latin-regular.svg#Roboto') format('svg'); /* Legacy iOS */
+       url('../fonts/roboto-v20-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/roboto-v20-latin-regular.woff') format('woff'); /* Modern Browsers */
 }
 
 body {
@@ -223,7 +215,7 @@ div.panel-body {
   font-weight: 800;
   float: right;
   position: relative;
-  display: inline-block;
+  display: block;
   text-decoration: none;
 }
 
@@ -446,12 +438,12 @@ mark {
 
 .pager .previous > a {
   float: left;
-  display: inline-block;
+  display: block;
 }
 
 .pager .next > a {
   float: right;
-  display: inline-block;
+  display: block;
 }
 
 footer {
