@@ -1,5 +1,7 @@
 # [harbor](https://themes.gohugo.io/harbor/) - Simple Hugo Theme
 
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=matsuyoshi30_harbor&metric=alert_status)](https://sonarcloud.io/dashboard?id=matsuyoshi30_harbor)
+
 Simple and minimal personal blog theme for [Hugo](https://gohugo.io/).
 
 ![screenshot](https://user-images.githubusercontent.com/16238709/77252732-3698c880-6c99-11ea-9def-15a5f9b918bc.png)
