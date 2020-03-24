@@ -144,8 +144,7 @@ function renderResults (results) {
   })
 }
 
-initLunr()
-
-document.addEventListener('DOMContentLoaded', function() {
+window.onload = () => {
+  initLunr()
   initUI()
-});
+};
