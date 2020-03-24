@@ -1,5 +1,6 @@
 import lunr, { Token, utils } from 'lunr'
 import $, { getJSON } from 'jquery'
+import Mark from 'mark.js'
 
 var lunrIndex
 var lunrResult
@@ -126,6 +127,7 @@ function renderResults (results) {
     return
   }
 
+  var instance = new Mark(document.querySelector("#searchResults"))
   // Only show the ten first results
   results.slice(0, MAX_PAGES).forEach(function (result, idx) {
     var $searchResultPage = $('<div class="searchResultPage">')
@@ -138,8 +140,7 @@ function renderResults (results) {
     $searchResultPage.append('<div class="searchResultBody">' + result.body.substr(bodyStartPosition, BODY_LENGTH) + '</div>')
     $searchResults.append($searchResultPage)
 
-    // Highlight keyword
-    $('#searchResults').mark(query)
+    instance.mark(query)
   })
 }
 
