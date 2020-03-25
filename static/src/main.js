@@ -1,5 +1,7 @@
 import lunr, { Token, utils } from 'lunr'
 import Mark from 'mark.js'
+import '../css/main.css'
+import '../css/syntax.css'
 
 var lunrIndex
 var lunrResult
