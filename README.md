@@ -6,11 +6,11 @@ Simple and minimal personal blog theme for [Hugo](https://gohugo.io/).
 
 ![screenshot](https://user-images.githubusercontent.com/16238709/77252732-3698c880-6c99-11ea-9def-15a5f9b918bc.png)
 
-![screenshot-dart](https://user-images.githubusercontent.com/16238709/77252745-529c6a00-6c99-11ea-95f6-2df83dfff35e.png)
+![screenshot-dark](https://user-images.githubusercontent.com/16238709/77252745-529c6a00-6c99-11ea-95f6-2df83dfff35e.png)
 
 ## Features
 
-- Support tags
+- Support tags and categories
 - Google Analytics integration
 - Responsive
 - Dark mode
@@ -36,9 +36,9 @@ If you want to know more information, see [Hugo doc](https://gohugo.io/themes/in
 
 When you manually create files by following [quick start (step4)](https://gohugo.io/getting-started/quick-start/#step-4-add-some-content), you should command `hugo new post/<filename>.md` instead of `hugo new posts/<filename>.md` because some styles are specified by the class name (like `post-heading`) in the [main.css](./static/css/main.css).
 
-### `config.toml` example
+#### `config.toml` example
 
-```
+```toml
 themes = "harbor"
 baseurl = "https://example.com/"
 title = "Hugo Themes"
@@ -91,7 +91,7 @@ googleAnalytics = "UA-XXXXXXXX-XX" # Optional
   alt = "Logo"
 ```
 
-### Search entire blog posts
+#### Search entire blog posts
 
 You should make ```search.md``` in content directory.
 
@@ -103,11 +103,11 @@ title: "Search"
 {{<search>}}
 ```
 
-### TOC
+#### TOC
 
 If you want to use TableOfContent, you need to write words greater than 400, and set `true` frontmatter `toc`.
 
-### Back To Top Button
+#### Back To Top Button
 
 If you want to use Back To Top Button, you need to write words greater than 400, and set `true` frontmatter `backtotop`.
 
