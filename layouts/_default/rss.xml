@@ -11,7 +11,6 @@
     	{{ if not .Date.IsZero }}
   		<lastBuildDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</lastBuildDate>
 		{{ end }}
-<<<<<<< Updated upstream:layouts/_default/rss.xml
 		<atom:link href="{{ .Permalink }}" rel="self" type="application/rss+xml" />
 		{{ range first 10 (where (where .Site.Pages ".Section" "post") "Kind" "page") }}
 		<item>
@@ -21,19 +20,6 @@
 			<guid>{{ .Permalink }}</guid>
 			<description>{{ .Summary | html }}</description>
 		</item>
-=======
-		<atom:link href="{{.URL}}" rel="self" type="application/rss+xml" />
-		{{ range first 10 .Site.Pages }}
-      	{{ if eq .Type "post" }}
-    		<item>
-   	  	<title>{{ .Title }}</title>
-  		  	<link>{{ .Permalink }}</link>
-    			<pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</pubDate>
-   	  		<guid>{{ .Permalink }}</guid>
-  		  	<description>{{ .Summary | html }}</description>
-    		</item>
       	{{ end }}
->>>>>>> Stashed changes:layouts/partials/rss.xml
-		{{ end }}
 	</channel>
 </rss>
