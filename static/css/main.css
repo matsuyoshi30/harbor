@@ -96,14 +96,16 @@ a {
 .intro-header .page-heading,
 .intro-header .post-heading,
 .intro-header .tags-heading,
-.intro-header .categories-heading {
+.intro-header .categories-heading,
+.intro-header .archives-heading {
   text-align: center;
 }
 
 .intro-header .page-heading h1,
 .intro-header .post-heading h1,
 .intro-header .tags-heading h1,
-.intro-header .categories-heading h1 {
+.intro-header .categories-heading h1,
+.intro-header .archives-heading h1 {
   margin-top: 0;
   padding-top: 0;
   font-size: 50px;
@@ -126,6 +128,20 @@ h1,h2,h3,h4,h5,h6 {
   font-size: 16px;
   line-height: 1.7;
   color: #333333;
+}
+
+#blog-archives {
+  margin: 20px auto;
+  font-size: 14px;
+}
+
+.archives {
+  margin: 20px auto;
+}
+
+.archives td {
+  border: none;
+  text-align: left;
 }
 
 .article {
