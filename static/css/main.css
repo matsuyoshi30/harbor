@@ -1,7 +1,26 @@
+/* noto-sans-jp-regular - japanese_latin */
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Noto Sans Japanese Regular'), local('NotoSansJapanese-Regular'),
+       url('../fonts/noto-sans-jp-v25-japanese_latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/noto-sans-jp-v25-japanese_latin-regular.woff') format('woff'); /* Modern Browsers */
+}
+
+/* roboto-regular - latin */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Roboto'), local('Roboto-Regular'),
+       url('../fonts/roboto-v20-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/roboto-v20-latin-regular.woff') format('woff'); /* Modern Browsers */
+}
+
 body {
   font-family: 'Noto Sans JP', sans-serif;
   font-size: 16px;
-  background: #ffffff;
   position: relative;
   margin: 0;
   padding: 0;
@@ -65,6 +84,10 @@ a {
   margin: 0 0 0 10px;
 }
 
+.nav-links li a i {
+  color: #000000;
+}
+
 .intro-header {
   margin: 40px 0 20px;
   position: relative;
@@ -72,13 +95,17 @@ a {
 
 .intro-header .page-heading,
 .intro-header .post-heading,
-.intro-header .tags-heading {
+.intro-header .tags-heading,
+.intro-header .categories-heading,
+.intro-header .archives-heading {
   text-align: center;
 }
 
 .intro-header .page-heading h1,
 .intro-header .post-heading h1,
-.intro-header .tags-heading h1 {
+.intro-header .tags-heading h1,
+.intro-header .categories-heading h1,
+.intro-header .archives-heading h1 {
   margin-top: 0;
   padding-top: 0;
   font-size: 50px;
@@ -103,9 +130,47 @@ h1,h2,h3,h4,h5,h6 {
   color: #333333;
 }
 
+#blog-archives {
+  margin: 20px auto;
+  font-size: 14px;
+}
+
+.archives {
+  margin: 20px auto;
+}
+
+.archives td {
+  border: none;
+  text-align: left;
+}
+
+.article {
+  text-align: justify;
+}
+
+#TableOfContents {
+  font-size: 14px;
+  border: 2px dotted #cccccc;
+  margin: 1em 0;
+  padding: 0.5em 0;
+  background-color: #f0f0f0;
+}
+
+#TableOfContents ul { 
+  list-style-type: none; 
+}
+
+#TableOfContents ul ul { 
+  list-style-type: disc; 
+}
+
 p {
   line-height: 1.5;
-  margin: 6px 0;
+  margin: 0.5em 0;
+}
+
+p + p {
+  margin-top: 1em;
 }
 
 .post-preview {
@@ -143,7 +208,7 @@ p {
   content: "#";
 }
 
-h4.tag-name > span.badge {
+h4.term-name > span.badge {
     float: right;
 }
 
@@ -165,7 +230,7 @@ div.panel-body {
   font-weight: 800;
   float: right;
   position: relative;
-  display: inline-block;
+  display: block;
   text-decoration: none;
 }
 
@@ -271,6 +336,85 @@ code {
     border-radius: 4px;
 }
 
+#backtotopButton {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 99;
+  border: none;
+  outline: none;
+  background-color: #eeeeff;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 16px;
+  text-align: center;
+}
+
+#backtotopButton:hover {
+  background-color: #aaaaaa;
+}
+
+.searchBoxContainer {
+  position: relative;
+  width: 300px;
+  height: 30px;
+  margin: 10px auto 50px auto;
+}
+
+input.searchBox {
+  position: absolute;
+  width: 100%;
+  padding: 0 35px 0 15px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 15px;
+  outline: 0;
+  font-size: 16px;
+  color: #707070;
+  background-color:#f6f6f6;
+  border: solid 1px #c9c9c9;
+  box-sizing: border-box;
+}
+
+.searchBox::placeholder {
+  color: #c9c9c9;
+}
+
+.searchResults {
+  display: none;
+  max-width: 600px;
+  min-width: 300px;
+  margin: 0 auto;
+  top: 210px;
+  left: 0;
+  right: 0;
+  padding: 5px;
+  border-radius: 5px;
+  text-align: left;
+}
+
+.searchResultPage {
+  padding: 14px
+}
+
+.searchResultTitle {
+  font-family: 'Roboto', Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 24px;
+  margin: 5px 0;
+}
+
+.searchResultBody {
+  font-size: 16px;
+}
+
+mark {
+  background-color: #eeff00;
+}
+
 .pager {
   list-style: none;
   text-align: center;
@@ -309,19 +453,18 @@ code {
 
 .pager .previous > a {
   float: left;
-  display: inline-block;
+  display: block;
 }
 
 .pager .next > a {
   float: right;
-  display: inline-block;
+  display: block;
 }
 
 footer {
   padding: 60px 0;
   text-align: center;
   margin-top: auto;
-  color: #505050;
   font-size: 14px;
   font-family: 'Roboto', Helvetica, sans-serif;
 }

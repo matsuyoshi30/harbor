@@ -1,0 +1,4 @@
+---
+title: "Archives"
+type: archives
+---

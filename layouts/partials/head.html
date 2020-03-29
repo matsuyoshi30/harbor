@@ -1,19 +1,18 @@
 <meta charset="utf-8" />
-<title>{{ block "title" . }}{{ end }}{{ .Site.Title }}</title>
-{{- with ($.Scratch.Get "Description") }}
-<meta name="description" content="{{ . }}">
-{{- end }}
+<title>{{ .Title }}</title>
+{{ with .Site.Params.description }}
+<meta name="description" content="{{ . }}" />
+{{ end }}
 {{- with .Site.Author.Name }}
 <meta name="author" content="{{ . }}"/>
 {{- end }}
 {{ partial "analytics.html" . }}
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="alternate" type="application/rss+xml" href="{{ .Site.BaseURL }}index.xml" title="Site Title">
 <!-- Stylesheets -->
-<link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP|Roboto&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="{{ .Site.BaseURL }}css/main.css" />
-<link rel="stylesheet" href="{{ .Site.BaseURL }}css/syntax.css" />
+<link id="dark-mode" rel="stylesheet" href="{{ .Site.BaseURL }}css/dark-sys.css" />
 <link disabled id="dark-mode-theme" rel="stylesheet" href="{{ .Site.BaseURL }}css/dark.css" />
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" integrity="sha384-v8BU367qNbs/aIZIxuivaU55N5GPF89WBerHoGA4QTcbUjYiLQtKdrfXnqAcXyTv" crossorigin="anonymous" />
+<link rel="stylesheet" href="{{ .Site.BaseURL }}fontawesome/css/all.css" />
+<script src="{{ .Site.BaseURL }}js/bundle.js"></script>
 {{ hugo.Generator -}}
