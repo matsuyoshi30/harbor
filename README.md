@@ -48,13 +48,14 @@ DefaultContentLanguage = "en"
 enableInlineShortcodes = true
 footnoteReturnLinkContents = "^"
 
-googleAnalytics = "UA-XXXXXXXX-XX" # Optional
-
 [Author]
   name = "Hugo Author"
 
 [outputs]
   section = ["JSON", "HTML"]
+
+[[params]]
+  googleAnalytics = "UA-XXXXXXXX-XX" # Optional
 
 [[params.nav]]
   identifier = "about"
