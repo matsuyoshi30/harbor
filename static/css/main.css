@@ -18,14 +18,18 @@
        url('../fonts/roboto-v20-latin-regular.woff') format('woff'); /* Modern Browsers */
 }
 
+html {
+  background-color: #FFFFFF;
+}
+
 body {
-  font-family: 'Noto Sans JP', sans-serif;
-  font-size: 16px;
-  position: relative;
   margin: 0;
   padding: 0;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 16px;
+  color: #42464c;
+  background: 0 0;
   flex-flow: column;
-  height: 100vh;
   text-rendering: optimizeLegibility;
 }
 
