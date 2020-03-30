@@ -10,7 +10,7 @@ Simple and minimal personal blog theme for [Hugo](https://gohugo.io/).
 
 ## Features
 
-- Support tags and categories
+- Support tags and categories and archives
 - Google Analytics integration
 - Responsive
 - Dark mode
@@ -59,7 +59,7 @@ googleAnalytics = "UA-XXXXXXXX-XX" # Optional
 [[params.nav]]
   identifier = "about"
   name = "About"
-  icon = "fas fa-userfa-lg"
+  icon = "fas fa-user fa-lg"
   url = "/about/"
   weight = 3
 
@@ -82,6 +82,13 @@ googleAnalytics = "UA-XXXXXXXX-XX" # Optional
   name = "Search"
   icon = "fas fa-search fa-lg"
   url = "search"
+  weight = 3
+
+[[params.nav]]
+  identifier = "archives"
+  name = "Archives"
+  icon = "fas fa-archive fa-lg"
+  url = "archives"
   weight = 3
 
 [params.logo]
@@ -110,6 +117,21 @@ If you want to use TableOfContent, you need to write words greater than 400, and
 #### Back To Top Button
 
 If you want to use Back To Top Button, you need to write words greater than 400, and set `true` frontmatter `backtotop`.
+
+#### Archives
+
+If you want archive page, generate `archive.md` file in `content` directory.
+
+```
+$ hugo new archives.md
+```
+
+```
++++
+title: "Archive page"
+type: myarchivetype
++++
+```
 
 ## Frontmatter example
 
