@@ -48,7 +48,9 @@ DefaultContentLanguage = "en"
 enableInlineShortcodes = true
 footnoteReturnLinkContents = "^"
 
-googleAnalytics = "UA-XXXXXXXX-XX" # Optional
+# Optional
+# If you use googleAnalytics, you set top-level options in config.toml to the beginning of the config file like other top-level options.
+googleAnalytics = "UA-XXXXXXXX-XX" 
 
 [Author]
   name = "Hugo Author"
@@ -92,11 +94,15 @@ googleAnalytics = "UA-XXXXXXXX-XX" # Optional
   weight = 3
 
 [params.logo]
-  url = "icon.png"
+  url = "icon.png" # static/images/icon.png
   width = 50
   height = 50
   alt = "Logo"
 ```
+
+Change favicon(static/favicon.ico) and icon(static/images/icon.png)!
+
+If you don't change them, your favicon and icon are my face :)
 
 #### Search entire blog posts
 
