@@ -12,6 +12,7 @@
   "author": "matsuyoshi30",
   "license": "MIT",
   "dependencies": {
+    "instant.page": "^3.0.0",
     "lunr": "^2.3.8",
     "webpack-merge": "^4.2.2"
   },
