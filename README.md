@@ -17,6 +17,7 @@ Simple and minimal personal blog theme for [Hugo](https://gohugo.io/).
 - Syntax Highlight (see [Hugo doc](https://gohugo.io/content-management/syntax-highlighting/))
 - Search entire blog posts
 - Table Of Contents
+- Disqus
 
 ## Installation & Update
 
@@ -51,6 +52,8 @@ footnoteReturnLinkContents = "^"
 # Optional
 # If you use googleAnalytics, you set top-level options in config.toml to the beginning of the config file like other top-level options.
 googleAnalytics = "UA-XXXXXXXX-XX" 
+# and disqus too.
+disqusShortName = "yourdisqusshortname"
 
 [Author]
   name = "Hugo Author"
