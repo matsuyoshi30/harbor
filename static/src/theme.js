@@ -1,11 +1,12 @@
 window.onload = function() {
     var toggle = document.getElementById("dark-mode-toggle");
-
     var darkTheme = document.getElementById("dark-mode-theme");
 
-    // the default theme is light
-    var savedTheme = localStorage.getItem("dark-mode-storage") || "light";
-    setTheme(savedTheme);
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        setTheme(localStorage.getItem("dark-mode-storage") || "dark");
+    } else {
+        saveTheme(savedTheme = localStorage.getItem("dark-mode-storage") || "light");
+    }
 
     toggle.addEventListener("click", () => {
         if (toggle.className === "fas fa-moon") {
@@ -17,7 +18,6 @@ window.onload = function() {
 
     function setTheme(mode) {
         localStorage.setItem("dark-mode-storage", mode);
-
         if (mode === "dark") {
             darkTheme.disabled = false;
             toggle.className = "fas fa-sun";
