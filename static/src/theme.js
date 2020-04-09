@@ -5,7 +5,7 @@ window.onload = function() {
     if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
         setTheme(localStorage.getItem("dark-mode-storage") || "dark");
     } else {
-        saveTheme(savedTheme = localStorage.getItem("dark-mode-storage") || "light");
+        saveTheme(localStorage.getItem("dark-mode-storage") || "light");
     }
 
     toggle.addEventListener("click", () => {
