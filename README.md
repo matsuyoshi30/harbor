@@ -8,6 +8,8 @@ Simple and minimal personal blog theme for [Hugo](https://gohugo.io/).
 
 ![screenshot-dark](https://user-images.githubusercontent.com/16238709/77252745-529c6a00-6c99-11ea-95f6-2df83dfff35e.png)
 
+[Here](https://themes.gohugo.io/theme/harbor/) is the demo link.
+
 ## Features
 
 - Support tags and categories and archives
