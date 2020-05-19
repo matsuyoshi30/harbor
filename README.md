@@ -42,7 +42,7 @@ When you manually create files by following [quick start (step4)](https://gohugo
 #### `config.toml` example
 
 ```toml
-themes = "harbor"
+theme = "harbor"
 baseurl = "https://example.com/"
 title = "Hugo Themes"
 paginate = 3
@@ -53,7 +53,7 @@ footnoteReturnLinkContents = "^"
 
 # Optional
 # If you use googleAnalytics, you set top-level options in config.toml to the beginning of the config file like other top-level options.
-googleAnalytics = "UA-XXXXXXXX-XX" 
+googleAnalytics = "UA-XXXXXXXX-XX"
 # and disqus too.
 disqusShortName = "yourdisqusshortname"
 
@@ -167,7 +167,7 @@ backtotop = false
 
 1. Install Node.js and npm, the Node.js package manager.
 
-2. The package.json file in your new sub-theme contains the versions of all the Node.js software you need. 
+2. The package.json file in your new sub-theme contains the versions of all the Node.js software you need.
   To install them run:
 
         npm install
