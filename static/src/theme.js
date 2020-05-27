@@ -1,11 +1,11 @@
-window.onload = function() {
+window.onload = function () {
     var toggle = document.getElementById("dark-mode-toggle");
     var darkTheme = document.getElementById("dark-mode-theme");
 
     if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
         setTheme(localStorage.getItem("dark-mode-storage") || "dark");
     } else {
-        saveTheme(localStorage.getItem("dark-mode-storage") || "light");
+        setTheme(localStorage.getItem("dark-mode-storage") || "light");
     }
 
     toggle.addEventListener("click", () => {
