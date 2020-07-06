@@ -2,7 +2,7 @@
 	<channel>
 		<title>{{ with .Title }}{{.}} on {{ end }}{{ .Site.Title }}</title>
 		<link>{{ .Permalink }}</link>
-		<description>Recent content {{ with .Title }}in {{.}} {{ end }}on {{ .Site.Title }}</description>
+		<description>Recent content {{ with .Title }}in {{.}} {{ end }}</description>
 		<generator>Hugo -- gohugo.io</generator>
 		{{ with .Site.LanguageCode }}
   		<language>{{.}}</language>
@@ -11,7 +11,7 @@
     	{{ if not .Date.IsZero }}
   		<lastBuildDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</lastBuildDate>
 		{{ end }}
-		<atom:link href="{{ .Permalink }}" rel="self" type="application/rss+xml" />
+		<atom:link href="{{ .URL }}" rel="self" type="application/rss+xml" />
 		{{ range first 10 (where (where .Site.Pages ".Section" "post") "Kind" "page") }}
 		<item>
 			<title>{{ .Title }}</title>
