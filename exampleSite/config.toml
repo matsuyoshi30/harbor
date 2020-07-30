@@ -10,6 +10,9 @@ footnoteReturnLinkContents = "^"
 [Author]
   name = "hugo author"
 
+[permalinks]
+	page = "/:filename/"
+
 [outputs]
     section = ["JSON", "HTML"]
 
