@@ -3,7 +3,7 @@ themesDir = "../../"
 # DO NOT REMOVE THIS
 theme = "harbor"
 
-baseURL = "https://gohugo.io"
+baseURL = "https://example.org/"
 title = "Hugo Themes"
 author = "Steve Francia"
 paginate = 3
