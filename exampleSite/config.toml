@@ -1,3 +1,8 @@
+# REMOVE THIS
+themesDir = "../../"
+# DO NOT REMOVE THIS
+theme = "harbor"
+
 baseURL = "https://gohugo.io"
 title = "Hugo Themes"
 author = "Steve Francia"
@@ -9,6 +14,9 @@ footnoteReturnLinkContents = "^"
 
 [Author]
   name = "hugo author"
+
+[permalinks]
+	page = "/:filename/"
 
 [outputs]
     section = ["JSON", "HTML"]
