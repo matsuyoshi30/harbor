@@ -3,29 +3,20 @@ import Mark from 'mark.js'
 import '../css/main.css'
 import '../css/syntax.css'
 
-var lunrIndex
-var lunrResult
-var pagesIndex
+let lunrIndex
+let lunrResult
+let pagesIndex
 
 const bigramTokeniser = (obj, metadata) => {
   if (obj == null || obj == undefined) {
     return []
   }
 
-  if (Array.isArray(obj)) {
-    return obj.map(t => {
-      return new Token(
-        utils.asString(t).toLowerCase(),
-        utils.clone(metadata)
-      )
-    })
-  }
+  let str = obj.toString().trim().toLowerCase()
+  let tokens = []
 
-  var str = obj.toString().trim().toLowerCase(),
-      tokens = []
-
-  for(var i = 0; i <= str.length - 2; i++) {
-    var tokenMetadata = utils.clone(metadata) || {}
+  for(let i = 0; i <= str.length - 2; i++) {
+    let tokenMetadata = utils.clone(metadata) || {}
     tokenMetadata["position"] = [i, i + 2]
     tokenMetadata["index"] = tokens.length
     tokens.push(
@@ -40,10 +31,10 @@ const bigramTokeniser = (obj, metadata) => {
 }
 
 const queryNgramSeparator = query => {
-  var str = query.toString().trim().toLowerCase(),
-      tokens = []
+  const str = query.toString().trim().toLowerCase()
+  const tokens = []
 
-  for(var i = 0; i <= str.length - 2; i++) {
+  for(let i = 0; i <= str.length - 2; i++) {
     tokens.push(str.slice(i, i + 2))
   }
 
@@ -53,7 +44,7 @@ const queryNgramSeparator = query => {
 const index = '../post/index.json'
 
 const initLunr = () => {
-  var request = new XMLHttpRequest();
+  let request = new XMLHttpRequest();
   request.open('GET', index, true)
   request.onload = function() {
     if (this.status >= 200 && this.status < 400) {
@@ -73,6 +64,9 @@ const initLunr = () => {
       console.error('Error getting Hugo index flie')
     }
   }
+  request.onerror = function() {
+    console.error('connection error')
+  }
   request.send();
 }
 
@@ -90,26 +84,22 @@ const search = query => {
   })
 }
 
-function initUI () {
-    // Event when changing query
-    let searchBox = document.querySelector('#searchBox')
-    searchBox.addEventListener('keyup', () => {
-        var searchResults = document.querySelector('#searchResults')
-        var query = document.querySelector('#searchBox').value
-
-        // Only trigger a search when 2 chars. at least have been provided
-        if (query.length < 2) {
-          searchResults.style.display = "none"
-          return
-        }
-
-        // Display search results
-        renderResults(search(query))
-        searchResults.style.display = "block"
-    })
-
-    // TODO: Emit keyup event for when the query is already setted with browser back etc.
-    // $('#searchBox').trigger('keyup')
+const initUI = () => {
+  document.querySelector('#searchBox').addEventListener("keyup", function(event) {
+    console.log("debug");
+    let searchResultsArea = document.querySelector('#searchResults');
+    let query = event.currentTarget.value;
+  
+    // Only trigger a search when 2 chars. at least have been provided
+    if (query.length < 2) {
+      searchResultsArea.style.display = "none"
+      return
+    }
+  
+    // Display search results
+    renderResults(search(query))
+    searchResultsArea.style.display = "block"
+  })
 }
 
 /**
@@ -117,13 +107,14 @@ function initUI () {
  * @param {Object[]} results Array of search results
  */
 const renderResults =　results => {
-  var searchResults = document.querySelector('#searchResults')
-  var query = document.querySelector('#searchBox').value
-  var BODY_LENGTH = 100
-  var MAX_PAGES = 10
+  const searchResults = document.querySelector('#searchResults')
+  const query = document.querySelector('#searchBox').value
+  const BODY_LENGTH = 100
+  const MAX_PAGES = 10
 
   // Clear search result
-  while(searchResults.firstChild) searchResults.removeChild(searchResults.firstChild)
+  while (searchResults.firstChild)
+    searchResults.removeChild(searchResults.firstChild)
 
   // Show message when results is empty
   if (!results.length) {
@@ -134,14 +125,14 @@ const renderResults =　results => {
     return
   }
 
-  var instance = new Mark(document.querySelector("#searchResults"))
+  let instance = new Mark(document.querySelector("#searchResults"))
   // Only show the ten first results
   results.slice(0, MAX_PAGES).forEach((result, idx) => {
     let resultPage = document.createElement('div')
     resultPage.className = 'searchResultPage'
-    var metadata = lunrResult[idx].matchData.metadata
-    var matchPosition = metadata[Object.keys(metadata)[0]].body.position[0][0]
-    var bodyStartPosition = (matchPosition - (BODY_LENGTH / 2) > 0) ? matchPosition - (BODY_LENGTH / 2) : 0
+    let metadata = lunrResult[idx].matchData.metadata
+    let matchPosition = metadata[Object.keys(metadata)[0]].body.position[0][0]
+    let bodyStartPosition = (matchPosition - (BODY_LENGTH / 2) > 0) ? matchPosition - (BODY_LENGTH / 2) : 0
 
     let resultTitle = document.createElement('a')
     resultTitle.className = 'searchResultTitle'
@@ -159,7 +150,5 @@ const renderResults =　results => {
   })
 }
 
-window.onload = () => {
-  initLunr()
-  initUI()
-};
+initLunr()
+initUI()
