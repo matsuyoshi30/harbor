@@ -17,6 +17,8 @@
         <i class="fa fa-angle-up"></i>
       </button>
     {{ end }}
-    {{ partial "disqus.html" . }}
-  </div>
+    {{ if  (not (isset .Params "disable_comments")) }}
+      {{ partial "disqus.html" . }}
+    {{ end }}  
+</div>
 {{ end }}
