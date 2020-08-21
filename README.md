@@ -171,7 +171,19 @@ disable_comment = true <!-- disable disqus -->
 2. The package.json file in your new sub-theme contains the versions of all the Node.js software you need.
   To install them run:
 
-        npm install
+```
+$ npm install
+```
+
+3. After fixing files in `static` dir, run `build` command to generate `bundle.js`
+
+```
+# for development version
+$ npm run build-dev
+
+# for production version
+$ npm run build-prod
+```
 
 ## LICENSE
 
