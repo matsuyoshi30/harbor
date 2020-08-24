@@ -86,16 +86,15 @@ const search = query => {
 
 const initUI = () => {
   document.querySelector('#searchBox').addEventListener("keyup", function(event) {
-    console.log("debug");
     let searchResultsArea = document.querySelector('#searchResults');
     let query = event.currentTarget.value;
-  
+
     // Only trigger a search when 2 chars. at least have been provided
     if (query.length < 2) {
       searchResultsArea.style.display = "none"
       return
     }
-  
+
     // Display search results
     renderResults(search(query))
     searchResultsArea.style.display = "block"

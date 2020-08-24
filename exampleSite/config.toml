@@ -1,8 +1,3 @@
-# REMOVE THIS
-themesDir = "../../"
-# DO NOT REMOVE THIS
-theme = "harbor"
-
 baseURL = "https://example.org/"
 title = "Hugo Themes"
 author = "Steve Francia"
@@ -11,6 +6,10 @@ languageCode = "en"
 DefaultContentLanguage = "en"
 enableInlineShortcodes = true
 footnoteReturnLinkContents = "^"
+# REMOVE THIS
+themesDir = "../../"
+# DO NOT REMOVE THIS
+theme = "harbor"
 
 [Author]
   name = "hugo author"
@@ -33,14 +32,14 @@ footnoteReturnLinkContents = "^"
   identifier = "tags"
   name = "Tags"
   icon = "fas fa-tag fa-lg"
-  url = "tags"
+  url = "/tags/"
   weight = 3
 
 [[params.nav]]
   identifier = "search"
   name = "Search"
   icon = "fas fa-search fa-lg"
-  url = "search"
+  url = "/search/"
   weight = 3
 
 [params]
