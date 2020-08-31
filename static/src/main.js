@@ -85,7 +85,11 @@ const search = query => {
 }
 
 const initUI = () => {
-  document.querySelector('#searchBox').addEventListener("keyup", function(event) {
+  const searchBox = document.querySelector('#searchBox');
+  if (searchBox === null) {
+    return;
+  }
+  searchBox.addEventListener("keyup", function(event) {
     let searchResultsArea = document.querySelector('#searchResults');
     let query = event.currentTarget.value;
 
