@@ -3,6 +3,7 @@
   font-family: 'Noto Sans JP';
   font-style: normal;
   font-weight: 400;
+  font-display: swap;
   src: local('Noto Sans Japanese Regular'), local('NotoSansJapanese-Regular'),
        url('../fonts/noto-sans-jp-v25-japanese_latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
        url('../fonts/noto-sans-jp-v25-japanese_latin-regular.woff') format('woff'); /* Modern Browsers */
@@ -13,6 +14,7 @@
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
+  font-display: swap;
   src: local('Roboto'), local('Roboto-Regular'),
        url('../fonts/roboto-v20-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
        url('../fonts/roboto-v20-latin-regular.woff') format('woff'); /* Modern Browsers */
@@ -160,12 +162,12 @@ h1,h2,h3,h4,h5,h6 {
   background-color: #f0f0f0;
 }
 
-#TableOfContents ul { 
-  list-style-type: none; 
+#TableOfContents ul {
+  list-style-type: none;
 }
 
-#TableOfContents ul ul { 
-  list-style-type: disc; 
+#TableOfContents ul ul {
+  list-style-type: disc;
 }
 
 p {
