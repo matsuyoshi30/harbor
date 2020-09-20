@@ -20,6 +20,7 @@ Simple and minimal personal blog theme for [Hugo](https://gohugo.io/).
 - Search entire blog posts
 - Table Of Contents
 - Disqus
+- Most social media
 
 ## Installation & Update
 
@@ -97,6 +98,13 @@ disqusShortName = "yourdisqusshortname"
   icon = "fas fa-archive fa-lg"
   url = "archives"
   weight = 3
+
+# copy paste this block and change for each social media to add how many ever social media
+# acounts/links you want
+[[params.social]]
+  name="name of social media"
+  url="link to social media"
+  icon="A icon from https://fontawesome.com/"
 
 [params.logo]
   url = "icon.png" # static/images/icon.png
