@@ -1,6 +1,7 @@
+{{ if .Site.Params.social }}
 <div>
-    {{ if .Site.Params.social.instagram }}
-    <a href="{{ .Site.Params.social.instagram.url }}" name="{{ .Site.Params.social.instagram.name }}"><i
-            class="{{ .Site.Params.social.instagram.icon }}"></i></a>
-    {{ end }}
+    {{ range $social :=  .Site.Params.social }}
+    <a href="{{ $social.url }}" name="{{ $social.name }}"><i class="{{ $social.icon }}"></i></a>
+    {{end}}
 </div>
+{{ end }}
