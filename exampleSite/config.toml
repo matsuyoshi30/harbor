@@ -42,6 +42,11 @@ theme = "harbor"
   url = "/search/"
   weight = 3
 
+[[params.social]]
+  name= "twitter"
+  url="https://twitter.com/GoHugoIO"
+  icon="fab fa-twitter"
+
 [params]
   mainSections = ["post"]
   favicon = "favicon.ico"
