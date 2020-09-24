@@ -162,7 +162,7 @@ tags = ["tags here"]
 draft = false
 toc = false
 backtotop = false
-disable_comment = true <!-- disable disqus -->
+disable_comments = true <!-- disable disqus -->
 +++
 
 # Title
