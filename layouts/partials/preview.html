@@ -3,8 +3,10 @@
       <h2 class="post-title">{{ .Title }}</h2>
   </a>
   <div class="post-entry">
-    {{ if .Truncated }}
+    {{ if .Summary }}
       <p>{{ .Summary }}</p>
+    {{ end }}
+    {{ if .Truncated }}
         <a href="{{ .Permalink }}" class="post-read-more">{{ i18n "read-more" }}</a>
     {{ end }}
   </div>
