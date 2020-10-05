@@ -13,6 +13,9 @@
 <!-- Stylesheets -->
 <link id="dark-mode-theme" rel="stylesheet" href="{{ .Site.BaseURL }}css/dark.css" />
 <link rel="stylesheet" href="{{ .Site.BaseURL }}fontawesome/css/all.min.css" />
+{{ range .Site.Params.customCSS }}
+<link rel="stylesheet" href="{{ . | absURL }}" />
+{{ end }}
 <!-- script -->
 <script src="{{ .Site.BaseURL }}js/bundle.js"></script>
 <script src="{{ .Site.BaseURL }}js/instantpage.js" type="module" defer></script>

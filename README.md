@@ -152,6 +152,15 @@ type: myarchivetype
 +++
 ```
 
+#### Override CSS
+
+If you want to override CSS, add `customCSS` param to your config.toml.
+
+```
+[params]
+  customCSS = ["/css/custom.css"] # in case you use `/static/css/custom.css`
+```
+
 ## Frontmatter example
 
 ```
