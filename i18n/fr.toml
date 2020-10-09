@@ -8,3 +8,5 @@ other = "Lire"
 other = "Recherche..."
 [powered-by]
 other = "Propulsé par"
+[theme]
+other = "thème"
