@@ -6,8 +6,9 @@
       {{ if .Params.tags }}
         <div class="blog-tags">
           {{ range .Params.tags }}
-            <a href="{{ $.Site.BaseURL }}/tags/{{ . | urlize }}/">{{ . }}</a
+            <a href="{{ "" | absLangURL }}/tags/{{ . | urlize }}/">{{ . }}</a
             >&nbsp;
+            <a href="{{ "" | absLangURL }}/tags/{{ . | urlize }}/">{{ . }}</a>&nbsp;
           {{ end }}
         </div>
       {{ end }}
