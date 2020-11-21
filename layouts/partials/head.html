@@ -18,13 +18,13 @@
 <link id="dark-mode-theme" rel="stylesheet" href="{{ .Site.BaseURL }}css/dark.css" />
 <!-- Load theme mode from browser cache -->
 <script>
-	var darkTheme = document.getElementById("dark-mode-theme");
-	var storedTheme = localStorage.getItem("dark-mode-storage");
-	if ( storedTheme === "dark") {
-		darkTheme.disabled = false;
-    } else if (storedTheme === "light") {
-		darkTheme.disabled = true;
-    }
+var darkTheme = document.getElementById("dark-mode-theme");
+var storedTheme = localStorage.getItem("dark-mode-storage");
+if (storedTheme === "dark") {
+    darkTheme.disabled = false;
+} else if (storedTheme === "light") {
+    darkTheme.disabled = true;
+}
 </script>
 <!-- script -->
 <script src="{{ .Site.BaseURL }}js/bundle.js"></script>
