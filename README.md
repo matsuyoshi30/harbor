@@ -1,6 +1,7 @@
 # [harbor](https://themes.gohugo.io/harbor/) - Simple Hugo Theme
 
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=matsuyoshi30_harbor&metric=alert_status)](https://sonarcloud.io/dashboard?id=matsuyoshi30_harbor)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fmatsuyoshi30%2Fharbor.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fmatsuyoshi30%2Fharbor?ref=badge_shield)
 
 Simple and minimal personal blog theme for [Hugo](https://gohugo.io/).
 
@@ -218,3 +219,6 @@ $ npm run build-prod
 ## LICENSE
 
 [MIT](./LICENSE).
+
+
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fmatsuyoshi30%2Fharbor.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fmatsuyoshi30%2Fharbor?ref=badge_large)
