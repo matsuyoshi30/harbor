@@ -10,3 +10,8 @@
   </script>
   {{ end }}
 {{ end }}
+{{ if and (.Site.Params.goatcounter) ( not .Site.IsServer ) }}
+  {{ $domain := .Site.Params.goatcounter.domain }}
+  <script data-goatcounter="https://{{ $domain }}/count"
+          async src="//{{ $domain }}/count.js"></script>
+{{ end }}
