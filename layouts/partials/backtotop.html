@@ -1,16 +1,19 @@
 <script>
-    document.addEventListener('scroll', function() {
-        if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-            document.getElementById('backtotopButton').style.opacity = "1";
-            document.getElementById('backtotopButton').style.transition = "0.5s";
-        } else {
-            document.getElementById('backtotopButton').style.opacity = "0";
-            document.getElementById('backtotopButton').style.transition = "0.5s";
-        }
-    });
-
-    function topFunction() {
-        document.body.scrollTop = 0;            // For Safari
-        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+  document.addEventListener('scroll', function () {
+    if (
+      document.body.scrollTop > 50 ||
+      document.documentElement.scrollTop > 50
+    ) {
+      document.getElementById('backtotopButton').style.opacity = '1'
+      document.getElementById('backtotopButton').style.transition = '0.5s'
+    } else {
+      document.getElementById('backtotopButton').style.opacity = '0'
+      document.getElementById('backtotopButton').style.transition = '0.5s'
     }
+  })
+
+  function topFunction() {
+    document.body.scrollTop = 0 // For Safari
+    document.documentElement.scrollTop = 0 // For Chrome, Firefox, IE and Opera
+  }
 </script>
