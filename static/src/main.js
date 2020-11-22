@@ -15,26 +15,21 @@ const bigramTokeniser = (obj, metadata) => {
   let str = obj.toString().trim().toLowerCase()
   let tokens = []
 
-  for(let i = 0; i <= str.length - 2; i++) {
+  for (let i = 0; i <= str.length - 2; i++) {
     let tokenMetadata = utils.clone(metadata) || {}
-    tokenMetadata["position"] = [i, i + 2]
-    tokenMetadata["index"] = tokens.length
-    tokens.push(
-      new Token (
-        str.slice(i, i + 2),
-        tokenMetadata
-      )
-    )
+    tokenMetadata['position'] = [i, i + 2]
+    tokenMetadata['index'] = tokens.length
+    tokens.push(new Token(str.slice(i, i + 2), tokenMetadata))
   }
 
   return tokens
 }
 
-const queryNgramSeparator = query => {
+const queryNgramSeparator = (query) => {
   const str = query.toString().trim().toLowerCase()
   const tokens = []
 
-  for(let i = 0; i <= str.length - 2; i++) {
+  for (let i = 0; i <= str.length - 2; i++) {
     tokens.push(str.slice(i, i + 2))
   }
 
@@ -44,19 +39,19 @@ const queryNgramSeparator = query => {
 const index = '../post/index.json'
 
 const initLunr = () => {
-  let request = new XMLHttpRequest();
+  let request = new XMLHttpRequest()
   request.open('GET', index, true)
-  request.onload = function() {
+  request.onload = function () {
     if (this.status >= 200 && this.status < 400) {
-      pagesIndex = JSON.parse(this.response);
-      lunrIndex = lunr(function() {
+      pagesIndex = JSON.parse(this.response)
+      lunrIndex = lunr(function () {
         this.tokenizer = bigramTokeniser
         this.pipeline.reset()
         this.ref('ref')
         this.field('title', { boost: 10 })
         this.field('body')
         this.metadataWhitelist = ['position']
-        pagesIndex.forEach(page => {
+        pagesIndex.forEach((page) => {
           this.add(page)
         }, this)
       })
@@ -64,10 +59,10 @@ const initLunr = () => {
       console.error('Error getting Hugo index flie')
     }
   }
-  request.onerror = function() {
+  request.onerror = function () {
     console.error('connection error')
   }
-  request.send();
+  request.send()
 }
 
 /**
@@ -75,33 +70,33 @@ const initLunr = () => {
  * @param {String} query Query string for searching
  * @return {Object[]} Array of search results
  */
-const search = query => {
+const search = (query) => {
   lunrResult = lunrIndex.search(queryNgramSeparator(query))
-  return lunrResult.map(result => {
-    return pagesIndex.filter(page => {
+  return lunrResult.map((result) => {
+    return pagesIndex.filter((page) => {
       return page.ref === result.ref
     })[0]
   })
 }
 
 const initUI = () => {
-  const searchBox = document.querySelector('#searchBox');
+  const searchBox = document.querySelector('#searchBox')
   if (searchBox === null) {
-    return;
+    return
   }
-  searchBox.addEventListener("keyup", function(event) {
-    let searchResultsArea = document.querySelector('#searchResults');
-    let query = event.currentTarget.value;
+  searchBox.addEventListener('keyup', function (event) {
+    let searchResultsArea = document.querySelector('#searchResults')
+    let query = event.currentTarget.value
 
     // Only trigger a search when 2 chars. at least have been provided
     if (query.length < 2) {
-      searchResultsArea.style.display = "none"
+      searchResultsArea.style.display = 'none'
       return
     }
 
     // Display search results
     renderResults(search(query))
-    searchResultsArea.style.display = "block"
+    searchResultsArea.style.display = 'block'
   })
 }
 
@@ -109,7 +104,7 @@ const initUI = () => {
  * Rendering search results
  * @param {Object[]} results Array of search results
  */
-const renderResults =　results => {
+const renderResults = (results) => {
   const searchResults = document.querySelector('#searchResults')
   const query = document.querySelector('#searchBox').value
   const BODY_LENGTH = 100
@@ -128,14 +123,15 @@ const renderResults =　results => {
     return
   }
 
-  let instance = new Mark(document.querySelector("#searchResults"))
+  let instance = new Mark(document.querySelector('#searchResults'))
   // Only show the ten first results
   results.slice(0, MAX_PAGES).forEach((result, idx) => {
     let resultPage = document.createElement('div')
     resultPage.className = 'searchResultPage'
     let metadata = lunrResult[idx].matchData.metadata
     let matchPosition = metadata[Object.keys(metadata)[0]].body.position[0][0]
-    let bodyStartPosition = (matchPosition - (BODY_LENGTH / 2) > 0) ? matchPosition - (BODY_LENGTH / 2) : 0
+    let bodyStartPosition =
+      matchPosition - BODY_LENGTH / 2 > 0 ? matchPosition - BODY_LENGTH / 2 : 0
 
     let resultTitle = document.createElement('a')
     resultTitle.className = 'searchResultTitle'
