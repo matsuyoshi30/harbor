@@ -6,7 +6,8 @@
       {{ if .Params.tags }}
         <div class="blog-tags">
           {{ range .Params.tags }}
-            <a href="{{ $.Site.BaseURL }}/tags/{{ . | urlize }}/">{{ . }}</a>&nbsp;
+            <a href="{{ $.Site.BaseURL }}/tags/{{ . | urlize }}/">{{ . }}</a
+            >&nbsp;
           {{ end }}
         </div>
       {{ end }}
@@ -19,6 +20,6 @@
     {{ end }}
     {{ if  (not (isset .Params "disable_comments")) }}
       {{ partial "disqus.html" . }}
-    {{ end }}  
-</div>
+    {{ end }}
+  </div>
 {{ end }}

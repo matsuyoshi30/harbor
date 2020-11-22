@@ -1,30 +1,39 @@
 <meta charset="utf-8" />
 <title>{{ .Title }}</title>
 {{ with .Site.Params.description }}
-<meta name="description" content="{{ . }}" />
+  <meta name="description" content="{{ . }}" />
 {{ end }}
 {{- with .Site.Author.Name }}
-<meta name="author" content="{{ . }}"/>
+  <meta name="author" content="{{ . }}" />
 {{- end }}
 {{ partial "analytics.html" . }}
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="alternate" type="application/rss+xml" href="{{ .Site.BaseURL }}index.xml" title="{{ .Site.Title }}">
+<link
+  rel="alternate"
+  type="application/rss+xml"
+  href="{{ .Site.BaseURL }}index.xml"
+  title="{{ .Site.Title }}"
+/>
 <!-- Stylesheets -->
 <link rel="stylesheet" href="{{ .Site.BaseURL }}fontawesome/css/all.min.css" />
 {{ range .Site.Params.customCSS }}
-<link rel="stylesheet" href="{{ . | absURL }}" />
+  <link rel="stylesheet" href="{{ . | absURL }}" />
 {{ end }}
-<link id="dark-mode-theme" rel="stylesheet" href="{{ .Site.BaseURL }}css/dark.css" />
+<link
+  id="dark-mode-theme"
+  rel="stylesheet"
+  href="{{ .Site.BaseURL }}css/dark.css"
+/>
 <!-- Load theme mode from browser cache -->
 <script>
-var darkTheme = document.getElementById("dark-mode-theme");
-var storedTheme = localStorage.getItem("dark-mode-storage");
-if (storedTheme === "dark") {
-    darkTheme.disabled = false;
-} else if (storedTheme === "light") {
-    darkTheme.disabled = true;
-}
+  var darkTheme = document.getElementById('dark-mode-theme')
+  var storedTheme = localStorage.getItem('dark-mode-storage')
+  if (storedTheme === 'dark') {
+    darkTheme.disabled = false
+  } else if (storedTheme === 'light') {
+    darkTheme.disabled = true
+  }
 </script>
 <!-- script -->
 <script src="{{ .Site.BaseURL }}js/bundle.js"></script>
