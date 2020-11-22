@@ -15,7 +15,7 @@
     {{ if and (gt .WordCount 400) (.Param "backtotop") }}
       {{ partial "backtotop.html" . }}
       <button onclick="topFunction()" id="backtotopButton">
-        <i class="fa fa-angle-up"></i>
+        <em class="fa fa-angle-up"></em>
       </button>
     {{ end }}
     {{ if  (not (isset .Params "disable_comments")) }}

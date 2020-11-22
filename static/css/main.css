@@ -90,7 +90,7 @@ a {
   margin: 0 0 0 10px;
 }
 
-.nav-links li a i {
+.nav-links li a em {
   color: #000000;
 }
 
@@ -478,7 +478,7 @@ footer a {
   font-weight: bold;
 }
 
-footer i {
+footer em {
   cursor: pointer;
 }
 
