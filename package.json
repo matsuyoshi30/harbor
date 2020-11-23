@@ -4,7 +4,7 @@
   "description": "Simple and minimal personal blog theme for [Hugo](https://gohugo.io/).",
   "main": "index.js",
   "scripts": {
-    "format": "prettier-eslint --write $PWD/'static/src/**/*.js' $PWD/'layouts/**/*.html'",
+    "format": "prettier-eslint --write $PWD/'static/src/**/*.js' $PWD/'layouts/**/*.html'; eslint $PWD/'static/src/**/*.js'",
     "build-dev": "webpack --config webpack.development.js",
     "build-prod": "webpack --config webpack.production.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -28,7 +28,6 @@
     "husky": "^4.3.0",
     "lint-staged": "^10.5.1",
     "mark.js": "^8.11.1",
-    "precommit": "^1.2.2",
     "prettier": "^2.2.0",
     "prettier-eslint": "^12.0.0",
     "prettier-eslint-cli": "^5.0.0",
@@ -45,7 +44,7 @@
   "lint-staged": {
     "*": [
       "prettier-eslint --write $PWD/'static/src/**/*.js $PWD/'layouts/**/*.html'",
-      "eslint"
+      "eslint static/src/*.js"
     ]
   }
 }
