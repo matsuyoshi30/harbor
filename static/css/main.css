@@ -267,7 +267,6 @@ table tr {
 
 table tr th {
   font-weight: bold;
-  background-color: #eeeeee;
   border: 1px solid #dddddd;
   text-align: left;
   margin: 0;
@@ -276,7 +275,6 @@ table tr th {
 
 table tr td {
   border: 1px solid #dddddd;
-  background-color: #ffffff;
   text-align: left;
   margin: 0;
   padding: 6px 12px;
