@@ -42,7 +42,7 @@
     }
   },
   "lint-staged": {
-    "*.{js,html}": [
+    "!(bundle).js": [
       "prettier-eslint --write $PWD/'static/src/**/*.js $PWD/'layouts/**/*.html'",
       "eslint $PWD/'static/src/**/*.js'"
     ]
