@@ -1,18 +1,18 @@
 {{ if and (gt .WordCount 400) (.Param "toc") }}
-    {{- /* 正規表現でh[1-6]を探す */ -}}
-    {{- $header := (findRE "<h2.*?>(?:.|\n)*?</h2>" .Content) -}}
-    {{- /* 最初に出現するh[1-6]を取得 */ -}}
-    {{- $firstH := index $header 0 -}}
+  {{- /* 正規表現でh[1-6]を探す */ -}}
+  {{- $header := (findRE "<h2.*?>(?:.|\n)*?</h2>" .Content) -}}
+  {{- /* 最初に出現するh[1-6]を取得 */ -}}
+  {{- $firstH := index $header 0 -}}
 
-    {{- if ne $firstH nil -}}
-        {{- /* ヘッダーの前にToCを結合した「新しいヘッダー」を作成 */ -}}
-        {{- $newH := printf `%s%s` .TableOfContents $firstH -}}
-        {{- /* 古いヘッダーを新しいヘッダーに置換して出力 */ -}}
-        {{- replace .Content $firstH $newH | safeHTML -}}
+  {{- if ne $firstH nil -}}
+    {{- /* ヘッダーの前にToCを結合した「新しいヘッダー」を作成 */ -}}
+    {{- $newH := printf `%s%s` .TableOfContents $firstH -}}
+    {{- /* 古いヘッダーを新しいヘッダーに置換して出力 */ -}}
+    {{- replace .Content $firstH $newH | safeHTML -}}
     {{- else -}}
-        {{- /* そもそもヘッダーがない時は普通に出力 */ -}}
-        {{- .Content -}}
-    {{- end -}}
-{{ else }}
-    {{ .Content }}
+    {{- /* そもそもヘッダーがない時は普通に出力 */ -}}
+    {{- .Content -}}
+  {{- end -}}
+  {{ else }}
+  {{ .Content }}
 {{ end }}

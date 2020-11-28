@@ -1,29 +1,33 @@
 {{ define "main" }}
-<div class="container" role="main">
+  <div class="container" role="main">
     <div class="posts-list">
       {{ if .IsHome }}
         {{ $pag := .Paginate (where site.RegularPages "Type" "in" site.Params.mainSections) }}
-      {{ else }}
+        {{ else }}
         {{ $pag := .Paginator.Pages }}
       {{ end }}
 
       {{ range .Paginator.Pages }}
         {{ partial "preview.html" . }}
       {{ end }}
-      </div>
+    </div>
     {{ if or (.Paginator.HasPrev) (.Paginator.HasNext) }}
-    <ul class="pager">
-      {{ if .Paginator.HasPrev }}
-        <li class="previous">
-          <a href="{{ .Permalink }}page/{{ .Paginator.Prev.PageNumber }}/">&larr; {{ i18n "newer" }}</a>
-        </li>
-      {{ end }}
-      {{ if .Paginator.HasNext }}
-        <li class="next">
-          <a href="{{ .Permalink }}page/{{ .Paginator.Next.PageNumber }}/">{{ i18n "older" }} &rarr;</a>
-        </li>
-      {{ end }}
-    </ul>
-  {{ end }}
-</div>
+      <ul class="pager">
+        {{ if .Paginator.HasPrev }}
+          <li class="previous">
+            <a href="{{ .Permalink }}page/{{ .Paginator.Prev.PageNumber }}/"
+              >&larr; {{ i18n "newer" }}</a
+            >
+          </li>
+        {{ end }}
+        {{ if .Paginator.HasNext }}
+          <li class="next">
+            <a href="{{ .Permalink }}page/{{ .Paginator.Next.PageNumber }}/"
+              >{{ i18n "older" }} &rarr;</a
+            >
+          </li>
+        {{ end }}
+      </ul>
+    {{ end }}
+  </div>
 {{ end }}

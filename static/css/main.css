@@ -90,7 +90,7 @@ a {
   margin: 0 0 0 10px;
 }
 
-.nav-links li a i {
+.nav-links li a em {
   color: #000000;
 }
 
@@ -99,27 +99,14 @@ a {
   position: relative;
 }
 
-.intro-header .page-heading,
-.intro-header .post-heading,
-.intro-header .tags-heading,
-.intro-header .categories-heading,
-.intro-header .archives-heading {
+.intro-header [class$="-heading"] {
   text-align: center;
 }
 
-.intro-header .page-heading h1,
-.intro-header .post-heading h1,
-.intro-header .tags-heading h1,
-.intro-header .categories-heading h1,
-.intro-header .archives-heading h1 {
+.intro-header [class$="-heading"] h1 {
   margin-top: 0;
   padding-top: 0;
   font-size: 50px;
-}
-
-.intro-header .post-heading h1 {
-  margin-top: 0;
-  font-size: 35px;
 }
 
 h1,h2,h3,h4,h5,h6 {
@@ -280,7 +267,6 @@ table tr {
 
 table tr th {
   font-weight: bold;
-  background-color: #eeeeee;
   border: 1px solid #dddddd;
   text-align: left;
   margin: 0;
@@ -289,7 +275,6 @@ table tr th {
 
 table tr td {
   border: 1px solid #dddddd;
-  background-color: #ffffff;
   text-align: left;
   margin: 0;
   padding: 6px 12px;
@@ -491,7 +476,7 @@ footer a {
   font-weight: bold;
 }
 
-footer i {
+footer em {
   cursor: pointer;
 }
 
