@@ -175,6 +175,17 @@ If you want to enable google analytics when running hugo as server, add `enableG
   enableGoogleAnalytics = true
 ```
 
+#### Enable UglyURLs
+
+If you want to enable "Ugly URLs" (e.g. exmaple.com/urls.html), add `uglyurls = true` to top level and [params] of your config.toml.
+
+```
+uglyurls = true
+
+[params]
+  uglyurls = true
+```
+
 ## Frontmatter example
 
 ```
