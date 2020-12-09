@@ -15,16 +15,28 @@
       <ul class="pager">
         {{ if .Paginator.HasPrev }}
           <li class="previous">
+            {{ if $.Site.Params.uglyurls }}
+            <a href="{{ replaceRE "\\.html$" "/" .Permalink }}page/{{ .Paginator.Prev.PageNumber }}.html"
+              >&larr; {{ i18n "newer" }}</a
+            >
+            {{ else }}
             <a href="{{ .Permalink }}page/{{ .Paginator.Prev.PageNumber }}/"
               >&larr; {{ i18n "newer" }}</a
             >
+            {{ end }}
           </li>
         {{ end }}
         {{ if .Paginator.HasNext }}
           <li class="next">
+            {{ if $.Site.Params.uglyurls }}
+            <a href="{{ replaceRE "\\.html$" "/" .Permalink }}page/{{ .Paginator.Next.PageNumber }}.html"
+              >{{ i18n "older" }} &rarr;</a
+            >
+            {{ else }}
             <a href="{{ .Permalink }}page/{{ .Paginator.Next.PageNumber }}/"
               >{{ i18n "older" }} &rarr;</a
             >
+            {{ end }}
           </li>
         {{ end }}
       </ul>
