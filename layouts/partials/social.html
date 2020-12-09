@@ -1,7 +1,7 @@
 {{ if .Site.Params.social }}
-<div>
+  <div>
     {{ range $social :=  .Site.Params.social }}
-      <a class="social-icon" href="{{ $social.url }}" name="{{ $social.name }}"
+      <a href="{{ $social.url }}" name="{{ $social.name }}"
         ><em class="{{ $social.icon }}"></em
       ></a>
     {{ end }}

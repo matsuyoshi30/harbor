@@ -1,6 +1,7 @@
 # [harbor](https://themes.gohugo.io/harbor/) - Simple Hugo Theme
 
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=matsuyoshi30_harbor&metric=alert_status)](https://sonarcloud.io/dashboard?id=matsuyoshi30_harbor)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fmatsuyoshi30%2Fharbor.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fmatsuyoshi30%2Fharbor?ref=badge_shield)
 
 Simple and minimal personal blog theme for [Hugo](https://gohugo.io/).
 
@@ -14,6 +15,7 @@ Simple and minimal personal blog theme for [Hugo](https://gohugo.io/).
 
 - Support tags and categories and archives
 - Google Analytics integration
+- Goatcounter analytics integration
 - Responsive
 - Dark mode
 - Syntax Highlight (see [Hugo doc](https://gohugo.io/content-management/syntax-highlighting/))
@@ -57,6 +59,9 @@ footnoteReturnLinkContents = "^"
 googleAnalytics = "UA-XXXXXXXX-XX"
 # and disqus too.
 disqusShortName = "yourdisqusshortname"
+
+[params.goatcounter]
+  domain="stats.domain.com"
 
 [Author]
   name = "Hugo Author"
@@ -170,6 +175,17 @@ If you want to enable google analytics when running hugo as server, add `enableG
   enableGoogleAnalytics = true
 ```
 
+#### Enable UglyURLs
+
+If you want to enable "Ugly URLs" (e.g. exmaple.com/urls.html), add `uglyurls = true` to top level and [params] of your config.toml.
+
+```
+uglyurls = true
+
+[params]
+  uglyurls = true
+```
+
 ## Frontmatter example
 
 ```
@@ -214,3 +230,6 @@ $ npm run build-prod
 ## LICENSE
 
 [MIT](./LICENSE).
+
+
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fmatsuyoshi30%2Fharbor.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fmatsuyoshi30%2Fharbor?ref=badge_large)

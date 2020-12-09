@@ -1,16 +1,14 @@
 {{ define "main" }}
-
-<div class="container" role="main">
-  <article class="post-preview">
-    {{ range .Data.Terms.Alphabetical }}
-      <div class="terms">
-        <h4 class="term-name" >
-          <a href="{{ .Page.Permalink }}">{{ .Page.Title }}</a>
-          <span class="badge">{{ .Count }}</span>
-        </h4>
-      </div>
-    {{ end }}
-  </article>
-</div>
-
+  <div class="container" role="main">
+    <article class="post-preview">
+      {{ range .Data.Terms.Alphabetical }}
+        <div class="terms">
+          <h4 class="term-name">
+            <a href="{{ .Page.Permalink }}">{{ .Page.Title }}</a>
+            <span class="badge">{{ .Count }}</span>
+          </h4>
+        </div>
+      {{ end }}
+    </article>
+  </div>
 {{ end }}

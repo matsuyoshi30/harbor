@@ -1,12 +1,17 @@
 {{ if or ( .Site.Params.enableGoogleAnalytics ) ( not .Site.IsServer ) }}
   {{ with .Site.GoogleAnalytics }}
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id={{ . }}"></script>
-  <script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ . }}"></script>
+    <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', '{{ . }}');
   </script>
   {{ end }}
+{{ end }}
+{{ if and (.Site.Params.goatcounter) ( not .Site.IsServer ) }}
+  {{ $domain := .Site.Params.goatcounter.domain }}
+  <script data-goatcounter="https://{{ $domain }}/count"
+          async src="//{{ $domain }}/count.js"></script>
 {{ end }}

@@ -1,11 +1,13 @@
 <article class="post-preview">
   <a href="{{ .Permalink }}">
-      <h2 class="post-title">{{ .Title }}</h2>
+    <h2 class="post-title">{{ .Title }}</h2>
   </a>
   <div class="post-entry">
     {{ if .Truncated }}
       <p>{{ .Summary }}</p>
-        <a href="{{ .Permalink }}" class="post-read-more">{{ i18n "read-more" }}</a>
+      <a href="{{ .Permalink }}" class="post-read-more"
+        >{{ i18n "read-more" }}</a
+      >
     {{ end }}
   </div>
 
