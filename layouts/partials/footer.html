@@ -1,8 +1,16 @@
 <footer>
   {{ partial "social.html" . }}
+
+  {{ if .IsTranslated }}
+    <p>
+    {{ range .Translations }}
+      <a href="{{ .Permalink }}" name="{{ .Language.LanguageName }}">{{ .Language.LanguageName }}</a>
+    {{ end }}
+    </p>
+  {{ end }}
   <div class="container">
     <p class="credits copyright">
-      <a href="{{ .Site.BaseURL }}about">{{ .Site.Author.name }}</a>
+      <a href="{{ "" | absLangURL }}about">{{ .Site.Author.name }}</a>
       &nbsp;&copy;
       {{ .Site.LastChange.Format "2006" }}
       {{ if .Site.Title }}
