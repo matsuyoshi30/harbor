@@ -166,6 +166,11 @@ p + p {
   margin-top: 1em;
 }
 
+.social-icon {
+  margin-left: 0.2em;
+  margin-right: 0.2em;
+}
+
 .post-preview {
   padding-bottom: 10px;
   border-bottom: 1px solid #eeeeee;

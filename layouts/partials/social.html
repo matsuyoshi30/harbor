@@ -5,5 +5,16 @@
         ><em class="{{ $social.icon }}"></em
       ></a>
     {{ end }}
-  </div>
+{{ end }}
+{{ if .Site.Params.social_static }}
+    {{ $base := .Site.BaseURL }}
+    {{ range $social :=  .Site.Params.social_static }}
+    <a class="social-icon" href="{{ $social.url }}" name="{{ $social.name }}">
+    <img src="{{ $base }}images/{{ $social.icon }}"
+        width="20"
+        height="20"
+        alt="{{ $social.name }}">
+    </a>
+    {{end}}
+</div>
 {{ end }}
