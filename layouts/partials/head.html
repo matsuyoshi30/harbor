@@ -15,8 +15,10 @@
   href="{{ .Site.BaseURL }}index.xml"
   title="{{ .Site.Title }}"
 />
-{{ template "_internal/opengraph.html" . }}
 {{ template "_internal/twitter_cards.html" . }}
+{{ if isset .Site.Taxonomies "series" }}
+  {{ template "_internal/opengraph.html" . }}
+{{ end }}
 <!-- Stylesheets -->
 <link rel="stylesheet" href="{{ .Site.BaseURL }}fontawesome/css/all.min.css" />
 {{ range .Site.Params.customCSS }}
