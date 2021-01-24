@@ -13,9 +13,8 @@ Simple and minimal personal blog theme for [Hugo](https://gohugo.io/).
 
 ## Features
 
-- Support tags and categories and archives
-- Google Analytics integration
-- Goatcounter analytics integration
+- Support tags, categories and archives
+- Analytics integration (Google or Goatcounter)
 - Responsive
 - Dark mode
 - Syntax Highlight (see [Hugo doc](https://gohugo.io/content-management/syntax-highlighting/))
@@ -28,7 +27,6 @@ Simple and minimal personal blog theme for [Hugo](https://gohugo.io/).
 
 ```
 $ # install
-$ mkdir themes
 $ cd themes
 $ git submodule add https://github.com/matsuyoshi30/harbor.git harbor
 
@@ -40,9 +38,7 @@ If you want to know more information, see [Hugo doc](https://gohugo.io/themes/in
 
 ## Usage
 
-When you manually create files by following [quick start (step4)](https://gohugo.io/getting-started/quick-start/#step-4-add-some-content), you should command `hugo new post/<filename>.md` instead of `hugo new posts/<filename>.md` because some styles are specified by the class name (like `post-heading`) in the [main.css](./static/css/main.css).
-
-#### `config.toml` example
+### `config.toml` example
 
 ```toml
 theme = "harbor"
@@ -118,13 +114,13 @@ disqusShortName = "yourdisqusshortname"
   alt = "Logo"
 ```
 
-Change favicon(static/favicon.ico) and icon(static/images/icon.png)!
+Before you user my theme, don't remember to change favicon (static/favicon.ico) and icon (static/images/icon.png)!
 
 If you don't change them, your favicon and icon are my face :)
 
-#### Search entire blog posts
+### Search entire blog posts
 
-You should make ```search.md``` in content directory.
+You should make `search.md` in the `page` directory.
 
 ```
 ---
@@ -134,17 +130,17 @@ title: "Search"
 {{<search>}}
 ```
 
-#### TOC
+### TOC
 
-If you want to use TableOfContent, you need to write words greater than 400, and set `true` frontmatter `toc`.
+If you want to use TableOfContent, you need to write words greater than 400, and set `true` of the frontmatter `toc`.
 
-#### Back To Top Button
+### Back To Top Button
 
-If you want to use Back To Top Button, you need to write words greater than 400, and set `true` frontmatter `backtotop`.
+If you want to use Back To Top Button, you need to write words greater than 400, and set `true` of the frontmatter `backtotop`.
 
-#### Archives
+### Archives
 
-If you want archive page, generate `archive.md` file in `content` directory.
+If you want archive page, generate `archive.md` file in the `content` directory.
 
 ```
 $ hugo new archives.md
@@ -157,16 +153,16 @@ type: myarchivetype
 +++
 ```
 
-#### Override CSS
+### Override CSS
 
-If you want to override CSS, add `customCSS` param to your config.toml.
+If you want to override CSS, add `customCSS` param which is path to CSS file to your config.toml.
 
 ```
 [params]
   customCSS = ["/css/custom.css"] # in case you use `/static/css/custom.css`
 ```
 
-#### Enable Google Analytics when running as server
+### Enable Google Analytics when running as server
 
 If you want to enable google analytics when running hugo as server, add `enableGoogleAnalytics` param to your config.toml.
 
@@ -175,7 +171,7 @@ If you want to enable google analytics when running hugo as server, add `enableG
   enableGoogleAnalytics = true
 ```
 
-#### Enable UglyURLs
+### Enable UglyURLs
 
 If you want to enable "Ugly URLs" (e.g. exmaple.com/urls.html), add `uglyurls = true` to top level and [params] of your config.toml.
 
@@ -196,7 +192,7 @@ tags = ["tags here"]
 draft = false
 toc = false
 backtotop = false
-disable_comment = true <!-- disable disqus -->
+disable_comments = true <!-- disable disqus -->
 +++
 
 # Title
@@ -204,32 +200,42 @@ disable_comment = true <!-- disable disqus -->
 <!-- when toc is true and post wordcounts is greater than 400 -->
 
 ## Contents
+
 ```
 
-## Development
+## Contribution
 
-1. Install Node.js and npm, the Node.js package manager.
+**Issues and PRs are very welcome!**
+
+### Development
+
+If you touch CSS or JavaScript file, you need to build to add your changes following below steps.
+
+1. Install Node.js and npm (Node.js package manager).
 
 2. The package.json file in your new sub-theme contains the versions of all the Node.js software you need.
   To install them run:
 
-```
-$ npm install
-```
+    ```
+    $ npm install
+    ```
 
 3. After fixing files in `static` dir, run `build` command to generate `bundle.js`
 
-```
-# for development version
-$ npm run build-dev
+    ```
+    $ # for development version
+    $ npm run build-dev
 
-# for production version
-$ npm run build-prod
-```
+    $ # for production version
+    $ npm run build-prod
+    ```
 
 ## LICENSE
 
 [MIT](./LICENSE).
 
-
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fmatsuyoshi30%2Fharbor.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fmatsuyoshi30%2Fharbor?ref=badge_large)
+
+## Author
+
+[matsuyoshi30](https://twitter.com/matsuyoshi30)
