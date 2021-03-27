@@ -14,7 +14,7 @@ module.exports = {
       },
       {
         test: /\.(woff|woff2)$/,
-        type: "asset/inline",
+        type: 'asset',
       },
     ]
   }
