@@ -42,11 +42,11 @@
     }
   },
   "lint-staged": {
-    "!(bundle).html": [
-      "prettier-eslint --write $PWD/'static/src/**/*.js $PWD/'layouts/**/*.html'"
+    "layouts/**/!(bundle).html": [
+      "prettier-eslint --write 'static/src/**/*.js' 'layouts/**/*.html'"
     ],
-    "!(bundle).js": [
-      "eslint $PWD/'static/src/**/*.js'"
+    "static/src/*.js": [
+      "eslint 'static/src/*.js'"
     ]
   }
 }
