@@ -1,10 +1,13 @@
 const path = require('path')
 
 module.exports = {
-  entry: {"main.js" : ['./static/src/main.js', './static/src/theme.js']},
+  entry: {
+    main: ['./static/src/main.js', './static/src/theme.js'],
+    search: './static/src/search.js',
+  },
   output: {
     path: `${__dirname}/static/js/`,
-    filename: 'bundle.js'
+    filename: '[name].bundle.js'
   },
   module: {
     rules: [
