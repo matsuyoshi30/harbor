@@ -3,9 +3,11 @@
 
   {{ if .IsTranslated }}
     <p>
-    {{ range .Translations }}
-      <a href="{{ .Permalink }}" name="{{ .Language.LanguageName }}">{{ .Language.LanguageName }}</a>
-    {{ end }}
+      {{ range .Translations }}
+        <a href="{{ .Permalink }}" name="{{ .Language.LanguageName }}"
+          >{{ .Language.LanguageName }}</a
+        >
+      {{ end }}
     </p>
   {{ end }}
   <div class="container">
