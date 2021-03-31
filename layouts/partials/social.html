@@ -1,20 +1,26 @@
-{{ if .Site.Params.social }}
-  <div>
-    {{ range $social :=  .Site.Params.social }}
-      <a href="{{ $social.url }}" name="{{ $social.name }}"
-        ><em class="{{ $social.icon }}"></em
-      ></a>
+{{ $len_socials := false }}
+
+<div class="social-icons">
+  {{ if .Site.Params.social }}
+    {{ $len_socials = true }}
+    {{ range $i, $social :=  .Site.Params.social }}
+      {{ if ne $i 0 }} &nbsp;&ndash;&nbsp;{{ end }}
+      <a href="{{ $social.url }}" name="{{ $social.name }}">
+        <em class="{{ $social.icon }}"></em>
+      </a>
     {{ end }}
-{{ end }}
-{{ if .Site.Params.social_static }}
+  {{ end }}
+
+  {{ if .Site.Params.social_static }}
     {{ $base := .Site.BaseURL }}
-    {{ range $social :=  .Site.Params.social_static }}
-    <a class="social-icon" href="{{ $social.url }}" name="{{ $social.name }}">
-    <img src="{{ $base }}images/{{ $social.icon }}"
-        width="20"
-        height="20"
-        alt="{{ $social.name }}">
-    </a>
-    {{end}}
+    {{ range $i, $social :=  .Site.Params.social_static }}
+      {{ if or ($len_socials) (ne $i 0) }} &nbsp;&ndash;&nbsp; {{ end }}
+      <a class="social-icon" href="{{ $social.url }}" name="{{ $social.name }}">
+        <img
+          src="{{ $base }}images/{{ $social.icon }}"
+          alt="{{ $social.name }}"
+        />
+      </a>
+    {{ end }}
+  {{ end }}
 </div>
-{{ end }}
