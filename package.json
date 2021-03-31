@@ -43,10 +43,10 @@
   },
   "lint-staged": {
     "layouts/**/!(bundle).html": [
-      "prettier-eslint --write 'static/src/**/*.js' 'layouts/**/*.html'"
+      "prettier-eslint --write $PWD/'static/src/**/*.js' $PWD/'layouts/**/*.html'"
     ],
     "static/src/*.js": [
-      "eslint 'static/src/*.js'"
+      "eslint $PWD/'static/src/*.js'"
     ]
   }
 }
