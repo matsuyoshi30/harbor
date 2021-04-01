@@ -1,14 +1,14 @@
 <nav class="navbar">
   <div class="nav">
     {{ if .Site.Params.logo }}
-        <a href="{{ "" | absLangURL }}" class="nav-logo">
+      <a href="{{ "" | absLangURL }}" class="nav-logo">
         <img
           src="{{ .Site.BaseURL }}images/{{ .Site.Params.logo.url }}"
           width="{{ .Site.Params.logo.width }}"
           height="{{ .Site.Params.logo.height }}"
           alt="{{ .Site.Params.logo.alt }}"
         />
-        </a>
+      </a>
     {{ end }}
 
     <ul class="nav-links">

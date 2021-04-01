@@ -469,9 +469,21 @@ footer {
   font-family: 'Roboto', Helvetica, sans-serif;
 }
 
+footer .social-icons a {
+  width: 1em;
+  height: 1em;
+}
+
+footer .social-icons a img {
+  width: 1em;
+  height: 1em;
+  vertical-align: top;
+}
+
 footer .copyright {
   font-family: 'Roboto', Helvetica, sans-serif;
   text-align: center;
+  margin-top: 10px;
   margin-bottom: 0;
 }
 
