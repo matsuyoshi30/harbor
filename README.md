@@ -14,7 +14,7 @@ Simple and minimal personal blog theme for [Hugo](https://gohugo.io/).
 ## Features
 
 - Support tags, categories and archives
-- Analytics integration (Google or Goatcounter)
+- Analytics integration (Google, Goatcounter or Matomo)
 - Responsive
 - Dark mode
 - Syntax Highlight (see [Hugo doc](https://gohugo.io/content-management/syntax-highlighting/))
@@ -58,6 +58,10 @@ disqusShortName = "yourdisqusshortname"
 
 [params.goatcounter]
   domain="stats.domain.com"
+
+[params.matomo]
+  domain="stats.domain.com"
+  id="123"
 
 [Author]
   name = "Hugo Author"
