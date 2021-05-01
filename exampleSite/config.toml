@@ -59,7 +59,7 @@ theme = "harbor"
 
 [[params.social_static]]
   name = "Qiita"
-  url = "https://twitter.com/kaakaa_hoe_prog"
+  url = "https://qiita.com"
   icon = "qiita.png"
 
 [params]
