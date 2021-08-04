@@ -1,0 +1,71 @@
+baseURL = "https://example.org/"
+title = "Hugo Themes"
+author = "Steve Francia"
+paginate = 3
+languageCode = "en"
+DefaultContentLanguage = "en"
+enableInlineShortcodes = true
+footnoteReturnLinkContents = "^"
+# DO NOT REMOVE THIS
+theme = "harbor"
+
+[Author]
+  name = "hugo author"
+
+[permalinks]
+	post = "/:year/:month/:day/:filename/"
+	page = "/:filename/"
+
+[outputs]
+    section = ["JSON", "HTML"]
+
+[[params.nav]]
+  identifier = "about"
+  name = "About"
+  icon = "fas fa-user fa-lg"
+  url = "/about/"
+  weight = 3
+
+[[params.nav]]
+  identifier = "tags"
+  name = "Tags"
+  icon = "fas fa-tag fa-lg"
+  url = "/tags/"
+  weight = 3
+
+[[params.nav]]
+  identifier = "search"
+  name = "Search"
+  icon = "fas fa-search fa-lg"
+  url = "/search/"
+  weight = 3
+
+[[params.social]]
+  name= "Twitter"
+  url="https://twitter.com/GoHugoIO"
+  icon="fab fa-twitter"
+
+[[params.social]]
+  name= "GitHub"
+  url="https://github.com/gohugoio/hugo"
+  icon="fab fa-github"
+
+[[params.social]]
+  name= "reddit"
+  url="https://www.reddit.com/r/gohugo/"
+  icon="fab fa-reddit-alien"
+
+[[params.social_static]]
+  name = "Qiita"
+  url = "https://qiita.com"
+  icon = "qiita.png"
+
+[params]
+  mainSections = ["post"]
+  favicon = "favicon.ico"
+
+  [params.logo]
+    url = "icon.png"
+    width = 50
+    height = 50
+    alt = "Logo"
