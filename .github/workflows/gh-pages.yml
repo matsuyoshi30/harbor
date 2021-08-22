@@ -7,7 +7,7 @@ on:
       - 'LICENSE'
       - 'README.md'
     branches:
-      - main
+      - master
       - exampleSite
 
 jobs:
