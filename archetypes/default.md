@@ -9,6 +9,6 @@ backtotop = false
 
 # Title
 
-<!-- toc -->
+<!--more-->
 
 ## Contents
