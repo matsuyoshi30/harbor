@@ -13,7 +13,7 @@
 {{ if and (.Site.Params.goatcounter) ( not .Site.IsServer ) }}
   {{ $domain := .Site.Params.goatcounter.domain }}
   <script data-goatcounter="https://{{ $domain }}/count"
-          async src="//{{ $domain }}/count.js"></script>
+          async src="//gc.zgo.at/count.js"></script>
 {{ end }}
 {{ if and (.Site.Params.matomo) ( not .Site.IsServer ) }}
   {{ $domain := .Site.Params.matomo.domain }}
