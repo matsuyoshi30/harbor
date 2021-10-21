@@ -46,6 +46,7 @@
 <script>
   var darkTheme = document.getElementById('dark-mode-theme')
   var storedTheme = localStorage.getItem('dark-mode-storage')
+
   if (storedTheme === 'dark') {
     darkTheme.disabled = false
   } else if (storedTheme === 'light') {
@@ -53,6 +54,15 @@
   }
 </script>
 <!-- script -->
-<script src="{{ .Site.BaseURL }}js/main.bundle.js"></script>
-<script src="{{ .Site.BaseURL }}js/instantpage.min.js" type="module" defer></script>
+{{ $instantpage := resources.Get "js/instantpage.min.js" }}
+<script defer crossorigin="anonymous" src="{{ $instantpage.RelPermalink }}" integrity="{{ $instantpage.Data.Integrity }}"></script>
+
+{{- if (eq .Layout `search`) -}}
+  {{ $lunr := resources.Get "js/lunr.js" }}
+  {{ $mark := resources.Get "js/mark.js" }}
+  {{ $basesearch := resources.Get "js/search.js" }}
+  {{ $search := (slice $lunr $mark $basesearch) | resources.Concat "js/search.js" | minify }}
+  <script defer crossorigin="anonymous" src="{{ $search.RelPermalink }}" integrity="{{ $search.Data.Integrity }}"></script>
+{{- end -}}
+
 {{ hugo.Generator -}}
