@@ -21,6 +21,19 @@
 {{ end }}
 <!-- Stylesheets -->
 <link rel="stylesheet" href="{{ .Site.BaseURL }}fontawesome/css/all.min.css" />
+
+{{ $main := resources.Get "css/main.css" }}
+{{ $dark := resources.Get "css/dark.css" }}
+{{ $syntax := resources.Get "css/syntax.css" }}
+{{ $styles := (slice $main $dark $syntax) | resources.Concat "css/styles.css" | minify }}
+<link
+  crossorigin="anonymous"
+  href="{{ $styles.RelPermalink }}"
+  integrity="{{ $styles.Data.Integrity }}"
+  rel="preload stylesheet"
+  as="style"
+/>
+
 {{ range .Site.Params.customCSS }}
   <link rel="stylesheet" href="{{ . | absURL }}" />
 {{ end }}
