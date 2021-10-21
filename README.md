@@ -222,14 +222,10 @@ If you touch CSS or JavaScript file, you need to build to add your changes follo
     $ npm install
     ```
 
-3. After fixing files in `static` dir, run `build` command to generate `bundle.js`
+3. After fixing files, you can format like below. (Auto format before commit using husky)
 
     ```
-    $ # for development version
-    $ npm run build-dev
-
-    $ # for production version
-    $ npm run build-prod
+    $ npm run format
     ```
 
 ## LICENSE
