@@ -4,9 +4,7 @@
   "description": "Simple and minimal personal blog theme for [Hugo](https://gohugo.io/).",
   "main": "index.js",
   "scripts": {
-    "format": "prettier-eslint --write $PWD/'static/src/**/*.js' $PWD/'layouts/**/*.html'; eslint $PWD/'static/src/**/*.js'",
-    "build-dev": "webpack --config webpack.development.js",
-    "build-prod": "webpack --config webpack.production.js",
+    "format": "prettier-eslint --write $PWD/'assets/js/search.js'  $PWD/'assets/js/theme.js' $PWD/'layouts/**/*.html'; eslint $PWD/'assets/js/search.js' $PWD/'assets/js/theme.js'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -14,16 +12,9 @@
   "license": "MIT",
   "dependencies": {
     "instant.page": "^3.0.0",
-    "lunr": "^2.3.9",
-    "webpack-merge": "^5.7.3"
+    "lunr": "^2.3.9"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^4.19.0",
-    "@typescript-eslint/parser": "^3.10.1",
-    "babel-core": "^6.26.3",
-    "babel-loader": "^7.1.5",
-    "babel-preset-env": "^1.7.0",
-    "css-loader": "^5.2.0",
     "eslint": "^7.23.0",
     "husky": "^4.3.8",
     "lint-staged": "^10.5.4",
@@ -31,10 +22,7 @@
     "prettier": "^2.2.1",
     "prettier-eslint": "^12.0.0",
     "prettier-eslint-cli": "^5.0.1",
-    "prettier-plugin-go-template": "^0.0.10",
-    "style-loader": "^1.3.0",
-    "webpack": "^5.28.0",
-    "webpack-cli": "^4.5.0"
+    "prettier-plugin-go-template": "^0.0.10"
   },
   "husky": {
     "hooks": {
@@ -43,10 +31,10 @@
   },
   "lint-staged": {
     "layouts/**/!(bundle).html": [
-      "prettier-eslint --write $PWD/'static/src/**/*.js' $PWD/'layouts/**/*.html'"
+      "prettier-eslint --write $PWD/'assets/js/search.js' $PWD/'assets/js/theme.js' $PWD/'layouts/**/*.html'"
     ],
     "static/src/*.js": [
-      "eslint $PWD/'static/src/*.js'"
+      "eslint $PWD/'assets/js/search.js' $PWD/'assets/js/theme.js'"
     ]
   }
 }
