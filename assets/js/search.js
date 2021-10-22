@@ -1,6 +1,3 @@
-import lunr, { Token, utils } from 'lunr'
-import Mark from 'mark.js'
-
 let lunrIndex
 let lunrResult
 let pagesIndex
@@ -14,10 +11,10 @@ const bigramTokeniser = (obj, metadata) => {
   let tokens = []
 
   for (let i = 0; i <= str.length - 2; i++) {
-    let tokenMetadata = utils.clone(metadata) || {}
+    let tokenMetadata = lunr.utils.clone(metadata) || {}
     tokenMetadata['position'] = [i, i + 2]
     tokenMetadata['index'] = tokens.length
-    tokens.push(new Token(str.slice(i, i + 2), tokenMetadata))
+    tokens.push(new lunr.Token(str.slice(i, i + 2), tokenMetadata))
   }
 
   return tokens
