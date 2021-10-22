@@ -122,14 +122,13 @@ If you don't change them, your favicon and icon are my face :)
 
 ### Search entire blog posts
 
-You should make `search.md` in the `page` directory.
+You should make `search.md` in the `content` directory.
 
 ```
 ---
 title: "Search"
+layout: "search"
 ---
-
-{{<search>}}
 ```
 
 ### TOC
