@@ -58,8 +58,8 @@
 <script defer crossorigin="anonymous" src="{{ $instantpage.RelPermalink }}" integrity="{{ $instantpage.Data.Integrity }}"></script>
 
 {{- if (eq .Layout `search`) -}}
-  {{ $lunr := resources.Get "js/lunr.js" }}
-  {{ $mark := resources.Get "js/mark.js" }}
+  {{ $lunr := resources.Get "js/lunr.min.js" }}
+  {{ $mark := resources.Get "js/mark.min.js" }}
   {{ $basesearch := resources.Get "js/search.js" }}
   {{ $search := (slice $lunr $mark $basesearch) | resources.Concat "js/search.js" | minify }}
   <script defer crossorigin="anonymous" src="{{ $search.RelPermalink }}" integrity="{{ $search.Data.Integrity }}"></script>
