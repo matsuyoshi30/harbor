@@ -23,9 +23,8 @@
 <link rel="stylesheet" href="{{ .Site.BaseURL }}fontawesome/css/all.min.css" />
 
 {{ $main := resources.Get "css/main.css" }}
-{{ $dark := resources.Get "css/dark.css" }}
 {{ $syntax := resources.Get "css/syntax.css" }}
-{{ $styles := (slice $main $dark $syntax) | resources.Concat "css/styles.css" | minify }}
+{{ $styles := (slice $main $syntax) | resources.Concat "css/styles.css" | minify }}
 <link
   crossorigin="anonymous"
   href="{{ $styles.RelPermalink }}"
@@ -37,11 +36,17 @@
 {{ range .Site.Params.customCSS }}
   <link rel="stylesheet" href="{{ . | absURL }}" />
 {{ end }}
+
+{{ $dark := resources.Get "css/dark.css" | minify }}
 <link
   id="dark-mode-theme"
-  rel="stylesheet"
-  href="{{ .Site.BaseURL }}css/dark.css"
+  crossorigin="anonymous"
+  href="{{ $dark.RelPermalink }}"
+  integrity="{{ $dark.Data.Integrity }}"
+  rel="preload stylesheet"
+  as="style"
 />
+
 <!-- Load theme mode from browser cache -->
 <script>
   var darkTheme = document.getElementById('dark-mode-theme')
@@ -54,6 +59,9 @@
   }
 </script>
 <!-- script -->
+{{ $theme := resources.Get "js/theme.js" }}
+<script defer crossorigin="anonymous" src="{{ $theme.RelPermalink }}" integrity="{{ $theme.Data.Integrity }}"></script>
+
 {{ $instantpage := resources.Get "js/instantpage.min.js" }}
 <script defer crossorigin="anonymous" src="{{ $instantpage.RelPermalink }}" integrity="{{ $instantpage.Data.Integrity }}"></script>
 
