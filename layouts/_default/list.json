@@ -3,6 +3,7 @@
         {{ if eq .Type "post" }}
         {{ if ne $index 0 }},{{ end }}
             {
+                "id": $index,
                 "ref": "{{ $page.Permalink }}",
                 "title": {{ $page.Title | jsonify }},
                 "section": "{{ $page.Section }}",
