@@ -59,6 +59,9 @@
   }
 </script>
 <!-- script -->
+{{ $theme := resources.Get "js/theme.js" }}
+<script defer crossorigin="anonymous" src="{{ $theme.RelPermalink }}" integrity="{{ $theme.Data.Integrity }}"></script>
+
 {{ $instantpage := resources.Get "js/instantpage.min.js" }}
 <script defer crossorigin="anonymous" src="{{ $instantpage.RelPermalink }}" integrity="{{ $instantpage.Data.Integrity }}"></script>
 
