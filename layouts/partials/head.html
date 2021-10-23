@@ -69,7 +69,6 @@
   {{ $flexsearch := resources.Get "js/flexsearch.bundle.js" }}
   <script defer crossorigin="anonymous" src="{{ $flexsearch.RelPermalink }}" integrity="{{ $flexsearch.Data.Integrity }}"></script>
 
-  {{ $lunr := resources.Get "js/lunr.min.js" }}
   {{ $mark := resources.Get "js/mark.min.js" }}
   {{ $basesearch := resources.Get "js/search.js" }}
 
