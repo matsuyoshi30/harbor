@@ -73,7 +73,7 @@
   {{ $basesearch := resources.Get "js/search.js" }}
 
   {{ $searchJSFile := printf "js/%s.search.js" .Language.Lang }}
-  {{ $search := (slice $lunr $mark $basesearch) | resources.Concat "js/search.js" | resources.ExecuteAsTemplate $searchJSFile . | resources.Fingerprint }}
+  {{ $search := (slice $mark $basesearch) | resources.Concat "js/search.js" | resources.ExecuteAsTemplate $searchJSFile . | resources.Fingerprint }}
   <script defer crossorigin="anonymous" src="{{ $search.RelPermalink }}" integrity="{{ $search.Data.Integrity }}"></script>
 {{- end -}}
 
