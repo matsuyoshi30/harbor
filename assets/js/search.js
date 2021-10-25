@@ -61,33 +61,33 @@ const renderResults = (results) => {
     return
   }
 
+  let arr = results[0].result
+  if (results.length > 1) {
+    arr.concat(results[1].result)
+  }
+  arr.filter((element, index, self) =>
+    self.findIndex(e => e.id === element.id) === index)
+
   let instance = new Mark(document.querySelector('#searchResults'))
-  results.forEach((result) => {
-    let isBody = result.field === "body"
+  arr.forEach((result) => {
+    let resultPage = document.createElement('div')
+    resultPage.className = 'searchResultPage'
 
-    // TODO: create array remove duplicate docs
-    result.result.forEach((result) => {
-      let resultPage = document.createElement('div')
-      resultPage.className = 'searchResultPage'
+    let resultTitle = document.createElement('a')
+    resultTitle.className = 'searchResultTitle'
+    resultTitle.href = result.doc.href
+    resultTitle.innerHTML = result.doc.title
+    resultPage.append(resultTitle)
 
-      let resultTitle = document.createElement('a')
-      resultTitle.className = 'searchResultTitle'
-      resultTitle.href = result.doc.href
-      resultTitle.innerHTML = result.doc.title
-      resultPage.append(resultTitle)
+    let resultBody = document.createElement('div')
+    resultBody.className = 'searchResultBody'
+    let matchPos = result.doc.body.indexOf(query)
+    let bodyStartPos = matchPos - BODY_LENGTH / 2 > 0 ? matchPos - BODY_LENGTH / 2 : 0
+    resultBody.innerHTML = result.doc.body.substr(bodyStartPos, BODY_LENGTH)
+    resultPage.append(resultBody)
+    searchResults.append(resultPage)
 
-      if (isBody) {
-        let resultBody = document.createElement('div')
-        resultBody.className = 'searchResultBody'
-        let matchPos = result.doc.body.indexOf(query)
-        let bodyStartPos = matchPos - BODY_LENGTH / 2 > 0 ? matchPos - BODY_LENGTH / 2 : 0
-        resultBody.innerHTML = result.doc.body.substr(bodyStartPos, BODY_LENGTH)
-        resultPage.append(resultBody)
-      }
-      searchResults.append(resultPage)
-
-      instance.mark(query)
-    })
+    instance.mark(query)
   })
 }
 
