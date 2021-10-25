@@ -60,7 +60,6 @@ const renderResults = (results) => {
     searchResults.append(resultPage)
     return
   }
-  console.log(results)
 
   let instance = new Mark(document.querySelector('#searchResults'))
   results.forEach((result) => {
@@ -68,7 +67,6 @@ const renderResults = (results) => {
 
     // TODO: create array remove duplicate docs
     result.result.forEach((result) => {
-      console.log(result)
       let resultPage = document.createElement('div')
       resultPage.className = 'searchResultPage'
 
