@@ -8,7 +8,7 @@ const init = () => {
   }
 
   let index = new FlexSearch.Document({
-    tokenize: 'forward',
+    tokenize: 'reverse',
     document: {
       field: ['title', 'body'],
       store: ['title', 'href', 'body']
