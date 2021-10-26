@@ -66,10 +66,14 @@
 <script defer crossorigin="anonymous" src="{{ $instantpage.RelPermalink }}" integrity="{{ $instantpage.Data.Integrity }}"></script>
 
 {{- if (eq .Layout `search`) -}}
-  {{ $lunr := resources.Get "js/lunr.min.js" }}
+  {{ $flexsearch := resources.Get "js/flexsearch.bundle.js" }}
+  <script defer crossorigin="anonymous" src="{{ $flexsearch.RelPermalink }}" integrity="{{ $flexsearch.Data.Integrity }}"></script>
+
   {{ $mark := resources.Get "js/mark.min.js" }}
   {{ $basesearch := resources.Get "js/search.js" }}
-  {{ $search := (slice $lunr $mark $basesearch) | resources.Concat "js/search.js" | minify }}
+
+  {{ $searchJSFile := printf "js/%s.search.js" .Language.Lang }}
+  {{ $search := (slice $mark $basesearch) | resources.Concat "js/search.js" | resources.ExecuteAsTemplate $searchJSFile . | resources.Fingerprint }}
   <script defer crossorigin="anonymous" src="{{ $search.RelPermalink }}" integrity="{{ $search.Data.Integrity }}"></script>
 {{- end -}}
 

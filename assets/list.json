@@ -1,14 +1,15 @@
 [
-    {{ range $index, $page := .Pages }}
-        {{ if eq .Type "post" }}
+    {{ $pages := where .Site.Pages "Kind" "in" (slice "page" "post") }}
+    {{ $pages = where $pages "Content" "not in" (slice nil "") }}
+    {{ range $index, $page := $pages }}
         {{ if ne $index 0 }},{{ end }}
             {
-                "ref": "{{ $page.Permalink }}",
+                "id": {{ $index }},
+                "href": "{{ $page.Permalink }}",
                 "title": {{ $page.Title | jsonify }},
                 "section": "{{ $page.Section }}",
                 "date" : {{ $page.Date.Format "2006.01.02" | jsonify }},
                 "body": {{ $page.Plain | jsonify }}
             }
-        {{ end }}
     {{ end }}
 ]

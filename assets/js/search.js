@@ -1,84 +1,28 @@
-let lunrIndex
-let lunrResult
-let pagesIndex
+{{ $searchData := resources.Get "list.json" | resources.ExecuteAsTemplate "search-data.json" . }}
+const searchDataURL = '{{ $searchData.RelPermalink }}'
 
-const bigramTokeniser = (obj, metadata) => {
-  if (obj == null || obj == undefined) {
-    return []
-  }
-
-  let str = obj.toString().trim().toLowerCase()
-  let tokens = []
-
-  for (let i = 0; i <= str.length - 2; i++) {
-    let tokenMetadata = lunr.utils.clone(metadata) || {}
-    tokenMetadata['position'] = [i, i + 2]
-    tokenMetadata['index'] = tokens.length
-    tokens.push(new lunr.Token(str.slice(i, i + 2), tokenMetadata))
-  }
-
-  return tokens
-}
-
-const queryNgramSeparator = (query) => {
-  const str = query.toString().trim().toLowerCase()
-  const tokens = []
-
-  for (let i = 0; i <= str.length - 2; i++) {
-    tokens.push(str.slice(i, i + 2))
-  }
-
-  return tokens.join(' ')
-}
-
-const index = '../post/index.json'
-
-const initLunr = () => {
-  let request = new XMLHttpRequest()
-  request.open('GET', index, true)
-  request.onload = function () {
-    if (this.status >= 200 && this.status < 400) {
-      pagesIndex = JSON.parse(this.response)
-      lunrIndex = lunr(function () {
-        this.tokenizer = bigramTokeniser
-        this.pipeline.reset()
-        this.ref('ref')
-        this.field('title', { boost: 10 })
-        this.field('body')
-        this.metadataWhitelist = ['position']
-        pagesIndex.forEach((page) => {
-          this.add(page)
-        }, this)
-      })
-    } else {
-      console.error('Error getting Hugo index flie')
-    }
-  }
-  request.onerror = function () {
-    console.error('connection error')
-  }
-  request.send()
-}
-
-/**
- * Searching pages using lunr
- * @param {String} query Query string for searching
- * @return {Object[]} Array of search results
- */
-const search = (query) => {
-  lunrResult = lunrIndex.search(queryNgramSeparator(query))
-  return lunrResult.map((result) => {
-    return pagesIndex.filter((page) => {
-      return page.ref === result.ref
-    })[0]
-  })
-}
-
-const initUI = () => {
+const init = () => {
   const searchBox = document.querySelector('#searchBox')
   if (searchBox === null) {
     return
   }
+
+  let index = new FlexSearch.Document({
+    tokenize: 'reverse',
+    document: {
+      field: ['title', 'body'],
+      store: ['title', 'href', 'body']
+    },
+  })
+
+  fetch(searchDataURL)
+    .then(pages => pages.json())
+    .then(pages => {
+      for(let i = 0; i < pages.length; i++){
+        index.add(i, pages[i]);
+      }
+    })
+
   searchBox.addEventListener('keyup', function (event) {
     let searchResultsArea = document.querySelector('#searchResults')
     let query = event.currentTarget.value
@@ -90,20 +34,19 @@ const initUI = () => {
     }
 
     // Display search results
-    renderResults(search(query))
+    renderResults(index.search(query, 10, { enrich: true }));
     searchResultsArea.style.display = 'block'
   })
 }
 
 /**
  * Rendering search results
- * @param {Object[]} results Array of search results
+ * @param {Object[]} results Array of search results ( fields[] => { field, result[] => { document }} )
  */
 const renderResults = (results) => {
   const searchResults = document.querySelector('#searchResults')
   const query = document.querySelector('#searchBox').value
   const BODY_LENGTH = 100
-  const MAX_PAGES = 10
 
   // Clear search result
   while (searchResults.firstChild)
@@ -118,25 +61,29 @@ const renderResults = (results) => {
     return
   }
 
+  let arr = results[0].result
+  if (results.length > 1) {
+    arr.concat(results[1].result)
+  }
+  arr.filter((element, index, self) =>
+    self.findIndex(e => e.id === element.id) === index)
+
   let instance = new Mark(document.querySelector('#searchResults'))
-  // Only show the ten first results
-  results.slice(0, MAX_PAGES).forEach((result, idx) => {
+  arr.forEach((result) => {
     let resultPage = document.createElement('div')
     resultPage.className = 'searchResultPage'
-    let metadata = lunrResult[idx].matchData.metadata
-    let matchPosition = metadata[Object.keys(metadata)[0]].body.position[0][0]
-    let bodyStartPosition =
-      matchPosition - BODY_LENGTH / 2 > 0 ? matchPosition - BODY_LENGTH / 2 : 0
 
     let resultTitle = document.createElement('a')
     resultTitle.className = 'searchResultTitle'
-    resultTitle.href = result.ref
-    resultTitle.innerHTML = result.title
+    resultTitle.href = result.doc.href
+    resultTitle.innerHTML = result.doc.title
     resultPage.append(resultTitle)
 
     let resultBody = document.createElement('div')
     resultBody.className = 'searchResultBody'
-    resultBody.innerHTML = result.body.substr(bodyStartPosition, BODY_LENGTH)
+    let matchPos = result.doc.body.indexOf(query)
+    let bodyStartPos = matchPos - BODY_LENGTH / 2 > 0 ? matchPos - BODY_LENGTH / 2 : 0
+    resultBody.innerHTML = result.doc.body.substr(bodyStartPos, BODY_LENGTH)
     resultPage.append(resultBody)
     searchResults.append(resultPage)
 
@@ -144,5 +91,4 @@ const renderResults = (results) => {
   })
 }
 
-initLunr()
-initUI()
+init();

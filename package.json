@@ -11,8 +11,8 @@
   "author": "matsuyoshi30",
   "license": "MIT",
   "dependencies": {
-    "instant.page": "^3.0.0",
-    "lunr": "^2.3.9"
+    "flexsearch": "^0.7.21",
+    "instant.page": "^3.0.0"
   },
   "devDependencies": {
     "eslint": "^7.23.0",
