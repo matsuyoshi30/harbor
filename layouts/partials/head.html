@@ -1,5 +1,5 @@
 <meta charset="utf-8" />
-<title>{{ .Title }}</title>
+<title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}</title>
 {{ with .Site.Params.description }}
   <meta name="description" content="{{ . }}" />
 {{ end }}
