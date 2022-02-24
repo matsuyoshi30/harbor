@@ -1,11 +1,28 @@
 html {
     background-color: #171717 !important;
 }
-body {
-    filter: invert(100%) hue-rotate(180deg) brightness(105%) contrast(85%);
-    -webkit-filter: invert(100%) hue-rotate(180deg) brightness(105%) contrast(85%);
+body[data-dark-theme="true"] .blog-tags a,
+body[data-dark-theme="true"] h1, 
+body[data-dark-theme="true"] h2, 
+body[data-dark-theme="true"] h3, 
+body[data-dark-theme="true"] h4, 
+body[data-dark-theme="true"] h5, 
+body[data-dark-theme="true"] h6,
+body[data-dark-theme="true"] .nav-links li a em,
+body[data-dark-theme="true"] footer * {
+ color: #e8e8e8 !important;
 }
-img, video, iframe, body * [style*="background-image"] {
-    filter: hue-rotate(180deg) contrast(100%) invert(100%);
-    -webkit-filter: hue-rotate(180deg) contrast(100%) invert(100%);
+
+body[data-dark-theme="true"] .intro-header,
+body[data-dark-theme="true"] .intro-header a,
+body[data-dark-theme="true"] .container[role=main] {
+ color: #c9c9c9;
+}
+
+body[data-dark-theme="true"] a {
+ color: #809fff
+}
+
+body[data-dark-theme="true"] a:visited {
+ color: #ecbbec;
 }

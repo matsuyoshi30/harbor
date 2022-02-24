@@ -1,4 +1,5 @@
 window.onload = function () {
+
   var toggle = document.getElementById('dark-mode-toggle')
   var darkTheme = document.getElementById('dark-mode-theme')
 
@@ -21,9 +22,12 @@ window.onload = function () {
     if (mode === 'dark') {
       darkTheme.disabled = false
       toggle.className = 'fas fa-sun'
+      document.querySelector('body').setAttribute('data-dark-theme', 'true')
     } else if (mode === 'light') {
       darkTheme.disabled = true
       toggle.className = 'fas fa-moon'
+      document.querySelector('body').setAttribute('data-dark-theme', 'false')
     }
   }
+  
 }

@@ -1,14 +1,15 @@
 <script>
+
+  var backtotopButton = document.getElementById('backtotopButton');
+
   document.addEventListener('scroll', function () {
     if (
       document.body.scrollTop > 50 ||
       document.documentElement.scrollTop > 50
     ) {
-      document.getElementById('backtotopButton').style.opacity = '1'
-      document.getElementById('backtotopButton').style.transition = '0.5s'
+      backtotopButton.style.opacity = '1'
     } else {
-      document.getElementById('backtotopButton').style.opacity = '0'
-      document.getElementById('backtotopButton').style.transition = '0.5s'
+      backtotopButton.style.opacity = '0'
     }
   })
 
@@ -16,4 +17,8 @@
     document.body.scrollTop = 0 // For Safari
     document.documentElement.scrollTop = 0 // For Chrome, Firefox, IE and Opera
   }
+
+  // Trigger scroll event on load
+  document.dispatchEvent(new CustomEvent('scroll'))
+  backtotopButton.style.display = 'block'
 </script>
