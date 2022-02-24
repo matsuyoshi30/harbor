@@ -4,26 +4,37 @@
   "description": "Simple and minimal personal blog theme for [Hugo](https://gohugo.io/).",
   "main": "index.js",
   "scripts": {
-    "build-dev": "webpack --config webpack.development.js",
-    "build-prod": "webpack --config webpack.production.js",
+    "format": "prettier-eslint --write $PWD/'assets/js/search.js'  $PWD/'assets/js/theme.js' $PWD/'layouts/**/*.html'; eslint $PWD/'assets/js/search.js' $PWD/'assets/js/theme.js'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "matsuyoshi30",
   "license": "MIT",
   "dependencies": {
-    "instant.page": "^3.0.0",
-    "lunr": "^2.3.8",
-    "webpack-merge": "^4.2.2"
+    "flexsearch": "^0.7.21",
+    "instant.page": "^3.0.0"
   },
   "devDependencies": {
-    "babel-core": "^6.26.3",
-    "babel-loader": "^7.1.5",
-    "babel-preset-env": "^1.7.0",
-    "css-loader": "^3.4.2",
+    "eslint": "^7.23.0",
+    "husky": "^4.3.8",
+    "lint-staged": "^10.5.4",
     "mark.js": "^8.11.1",
-    "style-loader": "^1.1.3",
-    "webpack": "^4.42.0",
-    "webpack-cli": "^3.3.11"
+    "prettier": "^2.2.1",
+    "prettier-eslint": "^12.0.0",
+    "prettier-eslint-cli": "^5.0.1",
+    "prettier-plugin-go-template": "^0.0.10"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "layouts/**/!(bundle).html": [
+      "prettier-eslint --write $PWD/'assets/js/search.js' $PWD/'assets/js/theme.js' $PWD/'layouts/**/*.html'"
+    ],
+    "static/src/*.js": [
+      "eslint $PWD/'assets/js/search.js' $PWD/'assets/js/theme.js'"
+    ]
   }
 }

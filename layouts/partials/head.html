@@ -1,19 +1,80 @@
 <meta charset="utf-8" />
-<title>{{ .Title }}</title>
+<title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}</title>
 {{ with .Site.Params.description }}
-<meta name="description" content="{{ . }}" />
+  <meta name="description" content="{{ . }}" />
 {{ end }}
 {{- with .Site.Author.Name }}
-<meta name="author" content="{{ . }}"/>
+  <meta name="author" content="{{ . }}" />
 {{- end }}
 {{ partial "analytics.html" . }}
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="alternate" type="application/rss+xml" href="{{ .Site.BaseURL }}index.xml" title="{{ .Site.Title }}">
+<link
+  rel="alternate"
+  type="application/rss+xml"
+  href="{{ .Site.BaseURL }}index.xml"
+  title="{{ .Site.Title }}"
+/>
+{{ template "_internal/twitter_cards.html" . }}
+{{ if isset .Site.Taxonomies "series" }}
+  {{ template "_internal/opengraph.html" . }}
+{{ end }}
 <!-- Stylesheets -->
-<link id="dark-mode-theme" rel="stylesheet" href="{{ .Site.BaseURL }}css/dark.css" />
 <link rel="stylesheet" href="{{ .Site.BaseURL }}fontawesome/css/all.min.css" />
+
+{{ $main := resources.Get "css/main.css" }}
+{{ $syntax := resources.Get "css/syntax.css" }}
+{{ $styles := (slice $main $syntax) | resources.Concat "css/styles.css" | minify }}
+<link
+  crossorigin="anonymous"
+  href="{{ $styles.RelPermalink }}"
+  integrity="{{ $styles.Data.Integrity }}"
+  rel="preload stylesheet"
+  as="style"
+/>
+
+{{ range .Site.Params.customCSS }}
+  <link rel="stylesheet" href="{{ . | absURL }}" />
+{{ end }}
+
+{{ $dark := resources.Get "css/dark.css" | minify }}
+<link
+  id="dark-mode-theme"
+  crossorigin="anonymous"
+  href="{{ $dark.RelPermalink }}"
+  integrity="{{ $dark.Data.Integrity }}"
+  rel="preload stylesheet"
+  as="style"
+/>
+
+<!-- Load theme mode from browser cache -->
+<script>
+  var darkTheme = document.getElementById('dark-mode-theme')
+  var storedTheme = localStorage.getItem('dark-mode-storage')
+
+  if (storedTheme === 'dark') {
+    darkTheme.disabled = false
+  } else if (storedTheme === 'light') {
+    darkTheme.disabled = true
+  }
+</script>
 <!-- script -->
-<script src="{{ .Site.BaseURL }}js/bundle.js"></script>
-<script src="{{ .Site.BaseURL }}js/instantpage.js" type="module" defer></script>
+{{ $theme := resources.Get "js/theme.js" }}
+<script defer crossorigin="anonymous" src="{{ $theme.RelPermalink }}" integrity="{{ $theme.Data.Integrity }}"></script>
+
+{{ $instantpage := resources.Get "js/instantpage.min.js" }}
+<script defer crossorigin="anonymous" src="{{ $instantpage.RelPermalink }}" integrity="{{ $instantpage.Data.Integrity }}"></script>
+
+{{- if (eq .Layout `search`) -}}
+  {{ $flexsearch := resources.Get "js/flexsearch.bundle.js" }}
+  <script defer crossorigin="anonymous" src="{{ $flexsearch.RelPermalink }}" integrity="{{ $flexsearch.Data.Integrity }}"></script>
+
+  {{ $mark := resources.Get "js/mark.min.js" }}
+  {{ $basesearch := resources.Get "js/search.js" }}
+
+  {{ $searchJSFile := printf "js/%s.search.js" .Language.Lang }}
+  {{ $search := (slice $mark $basesearch) | resources.Concat "js/search.js" | resources.ExecuteAsTemplate $searchJSFile . | resources.Fingerprint }}
+  <script defer crossorigin="anonymous" src="{{ $search.RelPermalink }}" integrity="{{ $search.Data.Integrity }}"></script>
+{{- end -}}
+
 {{ hugo.Generator -}}

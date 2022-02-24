@@ -1,21 +1,32 @@
 <footer>
-  {{partial "social.html" .}}
+  {{ partial "social.html" . }}
+
+  {{ if .IsTranslated }}
+    <p>
+      {{ range .Translations }}
+        <a href="{{ .Permalink }}" name="{{ .Language.LanguageName }}"
+          >{{ .Language.LanguageName }}</a
+        >
+      {{ end }}
+    </p>
+  {{ end }}
   <div class="container">
     <p class="credits copyright">
-      <a href="{{ .Site.BaseURL }}about">{{ .Site.Author.name }}</a>
+      <a href="{{ "" | absLangURL }}about">{{ .Site.Author.name }}</a>
       &nbsp;&copy;
       {{ .Site.LastChange.Format "2006" }}
       {{ if .Site.Title }}
-      &nbsp;/&nbsp;
-      <a href="{{ "" | absLangURL }}">{{ .Site.Title }}</a>
+        &nbsp;/&nbsp;
+        <a href="{{ "" | absLangURL }}">{{ .Site.Title }}</a>
       {{ end }}
       &nbsp;&ndash;&nbsp;
-      <i class="fas fa-moon" id="dark-mode-toggle"></i>
+      <em class="fas fa-moon" id="dark-mode-toggle"></em>
+    </p>
 
     <p class="credits theme-by">
-      {{ i18n "powered-by" }} <a href="https://gohugo.io">Hugo</a>&nbsp;Theme <a
-        href="https://github.com/matsuyoshi30/harbor">Harbor</a>
-    </p>
+      {{ i18n "powered-by" }} <a href="https://gohugo.io">Hugo</a>&nbsp;
+      {{ i18n "theme" }}
+      <a href="https://github.com/matsuyoshi30/harbor">Harbor</a>
     </p>
   </div>
 </footer>

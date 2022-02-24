@@ -90,7 +90,7 @@ a {
   margin: 0 0 0 10px;
 }
 
-.nav-links li a i {
+.nav-links li a em {
   color: #000000;
 }
 
@@ -99,27 +99,14 @@ a {
   position: relative;
 }
 
-.intro-header .page-heading,
-.intro-header .post-heading,
-.intro-header .tags-heading,
-.intro-header .categories-heading,
-.intro-header .archives-heading {
+.intro-header [class$="-heading"] {
   text-align: center;
 }
 
-.intro-header .page-heading h1,
-.intro-header .post-heading h1,
-.intro-header .tags-heading h1,
-.intro-header .categories-heading h1,
-.intro-header .archives-heading h1 {
+.intro-header [class$="-heading"] h1 {
   margin-top: 0;
   padding-top: 0;
   font-size: 50px;
-}
-
-.intro-header .post-heading h1 {
-  margin-top: 0;
-  font-size: 35px;
 }
 
 h1,h2,h3,h4,h5,h6 {
@@ -134,6 +121,10 @@ h1,h2,h3,h4,h5,h6 {
   font-size: 16px;
   line-height: 1.7;
   color: #333333;
+}
+
+.container img {
+  max-width: 100%;
 }
 
 #blog-archives {
@@ -177,6 +168,11 @@ p {
 
 p + p {
   margin-top: 1em;
+}
+
+.social-icon {
+  margin-left: 0.2em;
+  margin-right: 0.2em;
 }
 
 .post-preview {
@@ -280,7 +276,6 @@ table tr {
 
 table tr th {
   font-weight: bold;
-  background-color: #eeeeee;
   border: 1px solid #dddddd;
   text-align: left;
   margin: 0;
@@ -289,7 +284,6 @@ table tr th {
 
 table tr td {
   border: 1px solid #dddddd;
-  background-color: #ffffff;
   text-align: left;
   margin: 0;
   padding: 6px 12px;
@@ -475,9 +469,21 @@ footer {
   font-family: 'Roboto', Helvetica, sans-serif;
 }
 
+footer .social-icons a {
+  width: 1em;
+  height: 1em;
+}
+
+footer .social-icons a img {
+  width: 1em;
+  height: 1em;
+  vertical-align: top;
+}
+
 footer .copyright {
   font-family: 'Roboto', Helvetica, sans-serif;
   text-align: center;
+  margin-top: 10px;
   margin-bottom: 0;
 }
 
@@ -491,7 +497,7 @@ footer a {
   font-weight: bold;
 }
 
-footer i {
+footer em {
   cursor: pointer;
 }
 

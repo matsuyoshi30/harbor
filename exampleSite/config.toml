@@ -43,9 +43,24 @@ theme = "harbor"
   weight = 3
 
 [[params.social]]
-  name= "twitter"
+  name= "Twitter"
   url="https://twitter.com/GoHugoIO"
   icon="fab fa-twitter"
+
+[[params.social]]
+  name= "GitHub"
+  url="https://github.com/gohugoio/hugo"
+  icon="fab fa-github"
+
+[[params.social]]
+  name= "reddit"
+  url="https://www.reddit.com/r/gohugo/"
+  icon="fab fa-reddit-alien"
+
+[[params.social_static]]
+  name = "Qiita"
+  url = "https://qiita.com"
+  icon = "qiita.png"
 
 [params]
   mainSections = ["post"]
