@@ -15,10 +15,14 @@ body[data-dark-theme="true"] footer * {
 
 body[data-dark-theme="true"] .intro-header,
 body[data-dark-theme="true"] .intro-header a,
+body[data-dark-theme="true"] .intro-header a:visited,
+body[data-dark-theme="true"] .post-preview a,
+body[data-dark-theme="true"] .post-preview a:visited,
 body[data-dark-theme="true"] .container[role=main] {
  color: #c9c9c9;
 }
 
+body[data-dark-theme="true"] .blog-tags a,
 body[data-dark-theme="true"] a {
  color: #809fff
 }
