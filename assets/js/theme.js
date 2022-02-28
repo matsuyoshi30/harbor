@@ -1,5 +1,4 @@
 window.onload = function () {
-
   var toggle = document.getElementById('dark-mode-toggle')
   var darkTheme = document.getElementById('dark-mode-theme')
 
@@ -29,5 +28,4 @@ window.onload = function () {
       document.querySelector('body').setAttribute('data-dark-theme', 'false')
     }
   }
-  
 }
