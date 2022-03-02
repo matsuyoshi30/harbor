@@ -1,8 +1,12 @@
 <meta charset="utf-8" />
 <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}</title>
-{{ with .Site.Params.description }}
-  <meta name="description" content="{{ . }}" />
-{{ end }}
+<meta name="description" 
+      content="{{ if .Params.Description }}
+                 {{- .Params.Description -}}
+               {{else if .Site.Params.Description}}
+                 {{- .Site.Params.Description -}}
+               {{ end }}"
+>
 {{- with .Site.Author.Name }}
   <meta name="author" content="{{ . }}" />
 {{- end }}
