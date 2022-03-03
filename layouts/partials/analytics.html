@@ -18,8 +18,8 @@
 {{ if and (.Site.Params.matomo) ( not .Site.IsServer ) }}
   {{ $domain := .Site.Params.matomo.domain }}
   {{ $id := .Site.Params.matomo.id }}
-<!-- Matomo -->
-<script type="text/javascript">
+  <!-- Matomo -->
+  <script type="text/javascript">
   var _paq = window._paq = window._paq || [];
   /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
   _paq.push(['trackPageView']);
@@ -32,5 +32,5 @@
     g.type='text/javascript'; g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
   })();
 </script>
-<!-- End Matomo Code -->
+  <!-- End Matomo Code -->
 {{ end }}
