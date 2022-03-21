@@ -16,6 +16,9 @@ theme = "harbor"
 	post = "/:year/:month/:day/:filename/"
 	page = "/:filename/"
 
+[markup.goldmark.renderer]
+  unsafe = true
+
 [outputs]
     section = ["JSON", "HTML"]
 
