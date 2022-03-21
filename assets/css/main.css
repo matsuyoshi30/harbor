@@ -418,6 +418,30 @@ mark {
   background-color: #eeff00;
 }
 
+.bottomnav {
+  list-style: none;
+  text-align: center;
+  padding-left: 0;
+}
+
+.bottomnav ul {
+  display: block;
+}
+
+.bottomnav li {
+  display: inline;
+}
+
+.bottomnav .previous > a  {
+  float: left;
+  display: block;
+}
+
+.bottomnav .next > a {
+  float: right;
+  display: block;
+}
+
 .pager {
   list-style: none;
   text-align: center;
