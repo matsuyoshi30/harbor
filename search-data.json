@@ -45,6 +45,16 @@
         ,
             {
                 "id": 4,
+                "href": "https://matsuyoshi30.net/harbor/2019/03/08/math-typesetting/",
+                "title": "Math Typesetting",
+                "section": "post",
+                "date" : "2019.03.08",
+                "body": "Mathematical notation in a Hugo project can be enabled by using third party JavaScript libraries.\nIn this example we will be using KaTeX\n Create a partial under /layouts/partials/math.html Within this partial reference the Auto-render Extension or host these scripts locally. Include the partial in your templates like so:  {{ if or .Params.math .Site.Params.math }} {{ partial \u0026#34;math.html\u0026#34; . }} {{ end }}  To enable KaTex globally set the parameter math to true in a project\u0026rsquo;s configuration To enable KaTex on a per page basis include the parameter math: true in content files  Note: Use the online reference of Supported TeX Functions\n  Examples  Inline math: \\(\\varphi = \\dfrac{1+\\sqrt5}{2}= 1.6180339887…\\) Block math: $$ \\varphi = 1+\\frac{1} {1+\\frac{1} {1+\\frac{1} {1+\\cdots} } } $$\n"
+            }
+    
+        ,
+            {
+                "id": 5,
                 "href": "https://matsuyoshi30.net/harbor/2019/03/05/emoji-support/",
                 "title": "Emoji Support",
                 "section": "post",
