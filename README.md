@@ -3,11 +3,13 @@
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=matsuyoshi30_harbor&metric=alert_status)](https://sonarcloud.io/dashboard?id=matsuyoshi30_harbor)
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fmatsuyoshi30%2Fharbor.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fmatsuyoshi30%2Fharbor?ref=badge_shield)
 
-Simple and minimal personal blog theme for [Hugo](https://gohugo.io/). ([DEMO](https://matsuyoshi30.net/harbor/))
+Simple and minimal personal blog theme for [Hugo](https://gohugo.io/).
 
 ![screenshot](https://user-images.githubusercontent.com/16238709/77252732-3698c880-6c99-11ea-9def-15a5f9b918bc.png)
 
 ![screenshot-dark](https://user-images.githubusercontent.com/16238709/77252745-529c6a00-6c99-11ea-95f6-2df83dfff35e.png)
+
+[DEMO](https://matsuyoshi30.net/harbor/) is built from [exampleSite](https://github.com/matsuyoshi30/harbor/tree/exampleSite).
 
 ## Features
 
