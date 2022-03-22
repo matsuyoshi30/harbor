@@ -1,0 +1,22 @@
+<ul class="bottomnav">
+  {{- with .NextInSection -}}
+    <li class="previous">
+      {{- $title := .Title | safeHTML -}}
+      {{- if $title -}}
+        <a href="{{- .RelPermalink -}}"
+          ><span><<&nbsp;</span>{{- $title | truncate 20 -}}</a
+        >{{- end -}}
+
+    </li>
+  {{- end -}}
+  {{- with .PrevInSection -}}
+    <li class="next">
+      {{- $title := .Title | safeHTML -}}
+      {{- if $title -}}
+        <a href="{{- .RelPermalink -}}"
+          >{{- $title | truncate 20 -}}<span>&nbsp;>></span></a
+        >{{- end -}}
+
+    </li>
+  {{- end -}}
+</ul>

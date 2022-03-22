@@ -185,6 +185,15 @@ uglyurls = true
   uglyurls = true
 ```
 
+### Enable Bottom Navigation
+
+If you want to enable bottom navigation in , add `enableBottomNavigation = true` params to your config.toml.
+
+```
+[params]
+  enableBottomNavigation = true
+```
+
 ## Frontmatter example
 
 ```
