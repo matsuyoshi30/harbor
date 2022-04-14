@@ -1,0 +1,49 @@
+html {
+  background-color: #171717 !important;
+}
+body[data-dark-theme="true"] .blog-tags a,
+body[data-dark-theme="true"] h1, 
+body[data-dark-theme="true"] h2, 
+body[data-dark-theme="true"] h3, 
+body[data-dark-theme="true"] h4, 
+body[data-dark-theme="true"] h5, 
+body[data-dark-theme="true"] h6,
+body[data-dark-theme="true"] .nav-links li a em,
+body[data-dark-theme="true"] footer * {
+  color: #e8e8e8 !important;
+}
+
+body[data-dark-theme="true"] .intro-header,
+body[data-dark-theme="true"] .intro-header a,
+body[data-dark-theme="true"] .intro-header a:visited,
+body[data-dark-theme="true"] .post-preview a,
+body[data-dark-theme="true"] .post-preview a:visited,
+body[data-dark-theme="true"] .container[role=main] {
+ color: #c9c9c9;
+}
+
+body[data-dark-theme="true"] .post-preview:not(:last-child) {
+  border-bottom: 1px solid #434343;
+}
+
+body[data-dark-theme="true"] .pager li a,
+body[data-dark-theme="true"] .blog-tags a {
+  color: #809fff !important;
+}
+
+body[data-dark-theme="true"] .pager li a {
+  background: #131313;
+  border: 1px solid #434343;
+}
+
+body[data-dark-theme="true"] .pager li a:hover {
+  background: #313131;
+}
+
+body[data-dark-theme="true"] a:visited {
+ color: #ecbbec;
+}
+
+body[data-dark-theme="true"] a {
+ color: #809fff;
+}

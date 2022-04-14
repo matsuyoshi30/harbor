@@ -124,7 +124,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .container img {
-  width: 100%;
+  max-width: 100%;
 }
 
 #blog-archives {
@@ -349,6 +349,9 @@ code {
   border-radius: 10px;
   font-size: 16px;
   text-align: center;
+  transition: 0.5s;
+  opacity: 0;
+  display: none;
 }
 
 #backtotopButton:hover {
@@ -413,6 +416,30 @@ input.searchBox {
 
 mark {
   background-color: #eeff00;
+}
+
+.bottomnav {
+  list-style: none;
+  text-align: center;
+  padding-left: 0;
+}
+
+.bottomnav ul {
+  display: block;
+}
+
+.bottomnav li {
+  display: inline;
+}
+
+.bottomnav .previous > a  {
+  float: left;
+  display: block;
+}
+
+.bottomnav .next > a {
+  float: right;
+  display: block;
 }
 
 .pager {

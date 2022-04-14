@@ -9,12 +9,12 @@ Simple and minimal personal blog theme for [Hugo](https://gohugo.io/).
 
 ![screenshot-dark](https://user-images.githubusercontent.com/16238709/77252745-529c6a00-6c99-11ea-95f6-2df83dfff35e.png)
 
-[Here](https://themes.gohugo.io/theme/harbor/) is the demo link.
+[DEMO](https://matsuyoshi30.net/harbor/) is built from [exampleSite](https://github.com/matsuyoshi30/harbor/tree/exampleSite).
 
 ## Features
 
 - Support tags, categories and archives
-- Analytics integration (Google or Goatcounter)
+- Analytics integration (Google, Goatcounter or Matomo)
 - Responsive
 - Dark mode
 - Syntax Highlight (see [Hugo doc](https://gohugo.io/content-management/syntax-highlighting/))
@@ -58,6 +58,10 @@ disqusShortName = "yourdisqusshortname"
 
 [params.goatcounter]
   domain="stats.domain.com"
+
+[params.matomo]
+  domain="stats.domain.com"
+  id="123"
 
 [Author]
   name = "Hugo Author"
@@ -120,14 +124,13 @@ If you don't change them, your favicon and icon are my face :)
 
 ### Search entire blog posts
 
-You should make `search.md` in the `page` directory.
+You should make `search.md` in the `content` directory.
 
 ```
 ---
 title: "Search"
+layout: "search"
 ---
-
-{{<search>}}
 ```
 
 ### TOC
@@ -182,6 +185,15 @@ uglyurls = true
   uglyurls = true
 ```
 
+### Enable Bottom Navigation
+
+If you want to enable bottom navigation in , add `enableBottomNavigation = true` params to your config.toml.
+
+```
+[params]
+  enableBottomNavigation = true
+```
+
 ## Frontmatter example
 
 ```
@@ -220,14 +232,10 @@ If you touch CSS or JavaScript file, you need to build to add your changes follo
     $ npm install
     ```
 
-3. After fixing files in `static` dir, run `build` command to generate `bundle.js`
+3. After fixing files, you can format like below. (Auto format before commit using husky)
 
     ```
-    $ # for development version
-    $ npm run build-dev
-
-    $ # for production version
-    $ npm run build-prod
+    $ npm run format
     ```
 
 ## LICENSE
