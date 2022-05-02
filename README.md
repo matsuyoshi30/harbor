@@ -143,17 +143,17 @@ If you want to use Back To Top Button, you need to write words greater than 400,
 
 ### Archives
 
-If you want archive page, generate `archive.md` file in the `content` directory.
+If you want archive page, generate `archives.md` file in the `content` directory.
 
 ```
 $ hugo new archives.md
 ```
 
 ```
-+++
+---
 title: "Archive page"
-type: myarchivetype
-+++
+type: archives
+---
 ```
 
 ### Override CSS
