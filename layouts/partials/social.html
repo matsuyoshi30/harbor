@@ -5,7 +5,7 @@
     {{ $len_socials = true }}
     {{ range $i, $social :=  .Site.Params.social }}
       {{ if ne $i 0 }} &nbsp;&ndash;&nbsp;{{ end }}
-      <a rel="me" href="{{ $social.url }}" name="{{ $social.name }}">
+      <a rel="me" href="{{ $social.url }}" name="{{ $social.name }}" aria-label="{{ $social.aria_label }}">
         <em class="{{ $social.icon }}"></em>
       </a>
     {{ end }}
@@ -15,7 +15,7 @@
     {{ $base := .Site.BaseURL }}
     {{ range $i, $social :=  .Site.Params.social_static }}
       {{ if or ($len_socials) (ne $i 0) }} &nbsp;&ndash;&nbsp; {{ end }}
-      <a class="social-icon" href="{{ $social.url }}" name="{{ $social.name }}">
+      <a class="social-icon" href="{{ $social.url }}" name="{{ $social.name }}" aria-label="{{ $social.aria_label }}">
         <img
           src="{{ $base }}images/{{ $social.icon }}"
           alt="{{ $social.name }}"
