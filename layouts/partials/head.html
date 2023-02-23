@@ -23,8 +23,11 @@
 {{ if isset .Site.Taxonomies "series" }}
   {{ template "_internal/opengraph.html" . }}
 {{ end }}
+
 <!-- Stylesheets -->
 <link rel="stylesheet" href="{{ .Site.BaseURL }}fontawesome/css/all.min.css" />
+<link rel="preload" as="font" href="{{ .Site.BaseURL }}fontaweome/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" href="{{ .Site.BaseURL }}fontaweome/webfonts/fa-brands-400.woff2" />
 
 {{ $main := resources.Get "css/main.css" }}
 {{ $syntax := resources.Get "css/syntax.css" }}
