@@ -25,9 +25,11 @@
 {{ end }}
 
 <!-- Stylesheets -->
-<link rel="stylesheet" href="{{ .Site.BaseURL }}fontawesome/css/all.min.css" />
-<link rel="preload" as="font" href="{{ .Site.BaseURL }}fontaweome/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" href="{{ .Site.BaseURL }}fontaweome/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" href="{{ .Site.BaseURL }}fontawesome/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" href="{{ .Site.BaseURL }}fontawesome/webfonts/fa-brands-400.woff2" />
+<link rel="preload" href="{{ .Site.BaseURL }}fontawesome/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+<noscript><link rel="stylesheet" href="{{ .Site.BaseURL }}fontawesome/css/all.min.css" /></noscript>
+
 
 {{ $main := resources.Get "css/main.css" }}
 {{ $syntax := resources.Get "css/syntax.css" }}
