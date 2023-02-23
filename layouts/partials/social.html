@@ -5,7 +5,7 @@
     {{ $len_socials = true }}
     {{ range $i, $social :=  .Site.Params.social }}
       {{ if ne $i 0 }} &nbsp;&ndash;&nbsp;{{ end }}
-      <a href="{{ $social.url }}" name="{{ $social.name }}">
+      <a rel="me" href="{{ $social.url }}" name="{{ $social.name }}">
         <em class="{{ $social.icon }}"></em>
       </a>
     {{ end }}
