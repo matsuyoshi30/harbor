@@ -69,26 +69,18 @@ const renderResults = (results) => {
     self.findIndex(e => e.id === element.id) === index)
 
   let instance = new Mark(document.querySelector('#searchResults'))
-  arr.forEach((result) => {
-    let resultPage = document.createElement('div')
-    resultPage.className = 'searchResultPage'
+  let elements = arr.map((result) => {
+    const matchPos = result.doc.body.indexOf(query)
+    const bodyStartPos = matchPos - BODY_LENGTH / 2 > 0 ? matchPos - BODY_LENGTH / 2 : 0
+    const body = result.doc.body.substr(bodyStartPos, BODY_LENGTH)
 
-    let resultTitle = document.createElement('a')
-    resultTitle.className = 'searchResultTitle'
-    resultTitle.href = result.doc.href
-    resultTitle.innerHTML = result.doc.title
-    resultPage.append(resultTitle)
-
-    let resultBody = document.createElement('div')
-    resultBody.className = 'searchResultBody'
-    let matchPos = result.doc.body.indexOf(query)
-    let bodyStartPos = matchPos - BODY_LENGTH / 2 > 0 ? matchPos - BODY_LENGTH / 2 : 0
-    resultBody.innerHTML = result.doc.body.substr(bodyStartPos, BODY_LENGTH)
-    resultPage.append(resultBody)
-    searchResults.append(resultPage)
-
-    instance.mark(query)
+    return `<div class="searchResultPage">
+        <a class="searchResultTitle" href="${result.doc.href}">${result.doc.title}</a>
+        <div class="searchResultBody">${body}</div>
+      </div>`
   })
+  searchResults.innerHTML = elements.join('');
+  instance.mark(query)
 }
 
 init();
