@@ -69,6 +69,7 @@ const renderResults = (results) => {
     self.findIndex(e => e.id === element.id) === index)
 
   let instance = new Mark(document.querySelector('#searchResults'))
+  let fragment = document.createDocumentFragment();
   arr.forEach((result) => {
     let resultPage = document.createElement('div')
     resultPage.className = 'searchResultPage'
@@ -85,10 +86,10 @@ const renderResults = (results) => {
     let bodyStartPos = matchPos - BODY_LENGTH / 2 > 0 ? matchPos - BODY_LENGTH / 2 : 0
     resultBody.innerHTML = result.doc.body.substr(bodyStartPos, BODY_LENGTH)
     resultPage.append(resultBody)
-    searchResults.append(resultPage)
-
-    instance.mark(query)
+    fragment.append(resultPage)
   })
+  searchResults.append(fragment);
+  instance.mark(query)
 }
 
 init();
