@@ -133,6 +133,12 @@ layout: "search"
 ---
 ```
 
+And you should index by [pagefind](https://pagefind.app/) after `hugo build`.
+
+```
+$ npx pagefind --source "public"
+```
+
 ### TOC
 
 If you want to use TableOfContent, you need to write words greater than 400, and set `true` of the frontmatter `toc`.
