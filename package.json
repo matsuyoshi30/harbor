@@ -11,7 +11,6 @@
   "author": "matsuyoshi30",
   "license": "MIT",
   "dependencies": {
-    "flexsearch": "^0.7.21",
     "instant.page": "^3.0.0"
   },
   "devDependencies": {
