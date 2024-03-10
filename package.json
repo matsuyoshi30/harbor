@@ -16,8 +16,8 @@
   },
   "devDependencies": {
     "eslint": "^7.23.0",
-    "husky": "^4.3.8",
-    "lint-staged": "^10.5.4",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.2",
     "mark.js": "^8.11.1",
     "prettier": "^2.2.1",
     "prettier-eslint": "^12.0.0",
