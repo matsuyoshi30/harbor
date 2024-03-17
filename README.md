@@ -56,6 +56,9 @@ googleAnalytics = "UA-XXXXXXXX-XX"
 # and disqus too.
 disqusShortName = "yourdisqusshortname"
 
+# Optional support for isso commenting system (https://isso-comments.de/)
+params.isso = "your-isso-host"
+
 [params.goatcounter]
   domain="stats.domain.com"
 

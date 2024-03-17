@@ -1,0 +1,8 @@
+{{ with .Site.Params.isso }}
+<script data-isso="//{{ . }}/"
+        src="//{{ . }}/js/embed.min.js"></script>
+
+<section id="isso-thread">
+    <noscript>Javascript needs to be activated to view comments.</noscript>
+</section>
+{{ end }}
