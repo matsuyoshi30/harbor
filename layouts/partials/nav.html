@@ -15,13 +15,13 @@
       {{ range .Site.Params.nav }}
         {{ if .icon }}
           <li>
-            <a href="{{ .url | relLangURL }}" id="{{ .name }}"
+            <a href="{{ .url | relLangURL }}" id="{{ .name }}"  aria-label="{{ .aria_label }}"
               ><em class="{{ .icon }}"></em
             ></a>
           </li>
           {{ else }}
           <li>
-            <a href="{{ .url | relLangURL }}" id="{{ .name }}">{{ .name }}</a>
+            <a href="{{ .url | relLangURL }}" id="{{ .name }}" aria-label="{{ .aria_label }}">{{ .name }}</a>
           </li>
         {{ end }}
       {{ end }}

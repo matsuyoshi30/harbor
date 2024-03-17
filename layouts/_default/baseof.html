@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="{{ .Site.LanguageCode }}">
-  <head>
-    {{ partial "head.html" . }}
-  </head>
-  <body>
-    {{ partial "header.html" . }}
-    {{ block "main" . }}{{ end }}
-    {{ partial "footer.html" . }}
-  </body>
+
+<head>
+  {{ partial "head.html" . }}
+</head>
+
+<body>
+  {{ partial "header.html" . }}
+  {{ block "main" . }}{{ end }}
+  {{ partial "footer.html" . }}
+  <script defer src="{{ .Site.Params.fontawesomeurl }}" crossorigin="anonymous"></script>
+</body>
+
 </html>
