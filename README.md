@@ -118,7 +118,7 @@ disqusShortName = "yourdisqusshortname"
   alt = "Logo"
 ```
 
-Before you user my theme, don't remember to change favicon (static/favicon.ico) and icon (static/images/icon.png)!
+Before you use my theme, don't remember to change favicon (static/favicon.ico) and icon (static/images/icon.png)!
 
 If you don't change them, your favicon and icon are my face :)
 
