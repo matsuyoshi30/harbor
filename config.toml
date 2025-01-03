@@ -22,6 +22,9 @@ theme = "harbor"
 [outputs]
     section = ["JSON", "HTML"]
 
+[params]
+  enableGoogleAnalytics = false
+
 [[params.nav]]
   identifier = "about"
   name = "About"
