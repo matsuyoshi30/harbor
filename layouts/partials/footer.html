@@ -12,7 +12,7 @@
   {{ end }}
   <div class="container">
     <p class="credits copyright">
-      <a href="{{ "" | absLangURL }}about">{{ .Site.Author.name }}</a>
+      <a href="{{ "" | absLangURL }}about">{{ .Site.Params.Author.name }}</a>
       &nbsp;&copy;
       {{ .Site.LastChange.Format "2006" }}
       {{ if .Site.Title }}

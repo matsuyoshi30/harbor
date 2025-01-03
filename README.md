@@ -63,7 +63,7 @@ disqusShortName = "yourdisqusshortname"
   domain="stats.domain.com"
   id="123"
 
-[Author]
+[params.author]
   name = "Hugo Author"
 
 [outputs]
