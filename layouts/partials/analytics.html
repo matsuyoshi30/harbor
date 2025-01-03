@@ -1,5 +1,5 @@
 {{ if or ( .Site.Params.enableGoogleAnalytics ) ( not hugo.IsServer ) }}
-  {{ with .Site.GoogleAnalytics }}
+  {{ with site.Config.Services.GoogleAnalytics.ID }}
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id={{ . }}"></script>
     <script>
