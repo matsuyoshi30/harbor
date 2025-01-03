@@ -1,5 +1,5 @@
-{{ if or ( .Site.Params.enableGoogleAnalytics ) ( not .Site.IsServer ) }}
-  {{ with .Site.GoogleAnalytics }}
+{{ if or ( .Site.Params.enableGoogleAnalytics ) ( not hugo.IsServer ) }}
+  {{ with site.Config.Services.GoogleAnalytics.ID }}
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id={{ . }}"></script>
     <script>
@@ -10,12 +10,12 @@
   </script>
   {{ end }}
 {{ end }}
-{{ if and (.Site.Params.goatcounter) ( not .Site.IsServer ) }}
+{{ if and (.Site.Params.goatcounter) ( not hugo.IsServer ) }}
   {{ $domain := .Site.Params.goatcounter.domain }}
   <script data-goatcounter="https://{{ $domain }}/count"
           async src="//gc.zgo.at/count.js"></script>
 {{ end }}
-{{ if and (.Site.Params.matomo) ( not .Site.IsServer ) }}
+{{ if and (.Site.Params.matomo) ( not hugo.IsServer ) }}
   {{ $domain := .Site.Params.matomo.domain }}
   {{ $id := .Site.Params.matomo.id }}
   <!-- Matomo -->

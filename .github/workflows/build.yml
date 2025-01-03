@@ -16,10 +16,12 @@ jobs:
           ref: exampleSite
 
       - name: Get Theme
-        run: git submodule update --init --recursive
-
-      - name: Update theme to Latest commit
-        run: git submodule update --remote --merge
+        run: |
+          git submodule update --init --recursive
+          cd themes/harbor
+          git fetch origin ${{ github.event.pull_request.head.sha }}
+          git checkout ${{ github.event.pull_request.head.sha }}
+          cd ../..
 
       - name: Setup hugo
         uses: peaceiris/actions-hugo@v2
@@ -27,4 +29,4 @@ jobs:
           hugo-version: 'latest'
 
       - name: Build
-        run: hugo --buildDrafts --gc --verbose --minify
+        run: hugo --buildDrafts --gc --minify

@@ -4,8 +4,9 @@
   "description": "Simple and minimal personal blog theme for [Hugo](https://gohugo.io/).",
   "main": "index.js",
   "scripts": {
-    "format": "prettier-eslint --write $PWD/'assets/js/search.js'  $PWD/'assets/js/theme.js' $PWD/'layouts/**/*.html'; eslint $PWD/'assets/js/search.js' $PWD/'assets/js/theme.js'",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "format": "prettier-eslint --write $PWD/'assets/js/theme.js' $PWD/'layouts/**/*.html'; eslint $PWD/'assets/js/theme.js'",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky"
   },
   "keywords": [],
   "author": "matsuyoshi30",
@@ -31,10 +32,10 @@
   },
   "lint-staged": {
     "layouts/**/!(bundle).html": [
-      "prettier-eslint --write $PWD/'assets/js/search.js' $PWD/'assets/js/theme.js' $PWD/'layouts/**/*.html'"
+      "prettier-eslint --write $PWD/'assets/js/theme.js' $PWD/'layouts/**/*.html'"
     ],
     "static/src/*.js": [
-      "eslint $PWD/'assets/js/search.js' $PWD/'assets/js/theme.js'"
+      "eslint $PWD/'assets/js/theme.js'"
     ]
   }
 }
