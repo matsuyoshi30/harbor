@@ -51,11 +51,12 @@ enableInlineShortcodes = true
 footnoteReturnLinkContents = "^"
 
 # Optional
-# If you use googleAnalytics, you set top-level options in config.toml to the beginning of the config file like other top-level options.
-googleAnalytics = "UA-XXXXXXXX-XX"
-# and disqus too.
 [services]
+  [services.googleAnalytics]
+    # If you use googleAnalytics, you set top-level options in config.toml to the beginning of the config file like other top-level options.
+    id = 'G-MEASUREMENT_ID'
   [services.disqus]
+    # and disqus too.
     shortname = 'your-disqus-shortname'
 
 [params.goatcounter]
