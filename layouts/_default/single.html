@@ -26,6 +26,7 @@
     {{ end }}
     {{ if  (not (isset .Params "disable_comments")) }}
       {{ partial "disqus.html" . }}
+      {{ partial "isso.html" . }}
     {{ end }}
   </div>
 {{ end }}

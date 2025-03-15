@@ -59,6 +59,9 @@ footnoteReturnLinkContents = "^"
     # and disqus too.
     shortname = 'your-disqus-shortname'
 
+# Optional support for isso commenting system (https://isso-comments.de/)
+params.isso = "your-isso-host"
+
 [params.goatcounter]
   domain="stats.domain.com"
 
