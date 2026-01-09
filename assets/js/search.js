@@ -63,9 +63,9 @@ const renderResults = (results) => {
 
   let arr = results[0].result
   if (results.length > 1) {
-    arr.concat(results[1].result)
+    arr = arr.concat(results[1].result)
   }
-  arr.filter((element, index, self) =>
+  arr = arr.filter((element, index, self) =>
     self.findIndex(e => e.id === element.id) === index)
 
   let instance = new Mark(document.querySelector('#searchResults'))
@@ -84,7 +84,7 @@ const renderResults = (results) => {
     resultBody.className = 'searchResultBody'
     let matchPos = result.doc.body.indexOf(query)
     let bodyStartPos = matchPos - BODY_LENGTH / 2 > 0 ? matchPos - BODY_LENGTH / 2 : 0
-    resultBody.innerHTML = result.doc.body.substr(bodyStartPos, BODY_LENGTH)
+    resultBody.innerHTML = result.doc.body.substring(bodyStartPos, bodyStartPos + BODY_LENGTH)
     resultPage.append(resultBody)
     fragment.append(resultPage)
   })
