@@ -23,7 +23,10 @@
       showImages: false,
       excerptLength: 15,
       resetStyles: false,
-      bundlePath: '{{ .Site.BaseURL }}_pagefind/'
+      bundlePath: '{{ .Site.BaseURL }}_pagefind/',
+      translations: {
+        placeholder: '{{ i18n "search" }}'
+      }
     })
   }
 

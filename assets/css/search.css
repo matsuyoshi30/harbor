@@ -1,0 +1,125 @@
+/* Pagefind Search Styling - Matching Previous FlexSearch UI */
+
+/* Container styling - match searchBoxContainer */
+.pagefind-ui {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Search input styling - match input.searchBox */
+.pagefind-ui__form {
+  position: relative;
+  width: 300px;
+  height: 30px;
+  margin: 10px auto 50px auto;
+}
+
+.pagefind-ui__search-input {
+  position: absolute;
+  width: 100%;
+  padding: 0 35px 0 15px !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 30px !important;
+  border-radius: 15px !important;
+  outline: 0;
+  font-size: 16px !important;
+  color: #707070 !important;
+  background-color: #f6f6f6 !important;
+  border: solid 1px #c9c9c9 !important;
+  box-sizing: border-box;
+}
+
+.pagefind-ui__search-input::placeholder {
+  color: #c9c9c9 !important;
+}
+
+/* Clear button styling */
+.pagefind-ui__search-clear {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+/* Results container - match searchResults */
+.pagefind-ui__results {
+  max-width: 600px;
+  min-width: 300px;
+  margin: 0 auto;
+  padding: 5px;
+  border-radius: 5px;
+  text-align: left;
+}
+
+/* Individual result - match searchResultPage */
+.pagefind-ui__result {
+  padding: 14px !important;
+  border: none !important;
+  background: transparent !important;
+  margin-bottom: 0 !important;
+}
+
+/* Result link/title - match searchResultTitle */
+.pagefind-ui__result-link {
+  text-decoration: none !important;
+  background: none !important;
+  padding: 0 !important;
+}
+
+.pagefind-ui__result-title {
+  font-family: 'Roboto', Helvetica, sans-serif !important;
+  font-weight: bold !important;
+  font-size: 24px !important;
+  margin: 5px 0 !important;
+  color: inherit !important;
+}
+
+/* Result excerpt/body - match searchResultBody */
+.pagefind-ui__result-excerpt {
+  font-size: 16px !important;
+  margin: 5px 0 !important;
+  color: inherit !important;
+}
+
+/* Highlighted text - match mark */
+.pagefind-ui__result-excerpt mark {
+  background-color: #eeff00 !important;
+  color: inherit !important;
+  font-weight: normal !important;
+}
+
+/* Message when no results */
+.pagefind-ui__message {
+  padding: 14px;
+  text-align: center;
+  font-size: 16px;
+}
+
+/* Hide elements we don't need to match the old simple UI */
+.pagefind-ui__result-image,
+.pagefind-ui__result-inner {
+  display: contents;
+}
+
+/* Loading message */
+.pagefind-ui__loading {
+  padding: 14px;
+  text-align: center;
+  font-size: 16px;
+}
+
+/* Button styling (if any) */
+.pagefind-ui__button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
