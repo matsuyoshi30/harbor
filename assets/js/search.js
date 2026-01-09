@@ -17,17 +17,19 @@
     }
 
     // Create Pagefind UI instance
-    new PagefindUI({
+    const pagefind = new PagefindUI({
       element: '#searchContainer',
       showSubResults: true,
       showImages: false,
-      excerptLength: 15,
+      excerptLength: 30,
       resetStyles: true,
       bundlePath: '{{ .Site.BaseURL }}_pagefind/',
       translations: {
         placeholder: '{{ i18n "search" }}'
       }
     })
+
+    console.log('Pagefind UI initialized successfully')
   }
 
   // Wait for DOM and PagefindUI to be ready
