@@ -18,7 +18,7 @@
 
     // Create Pagefind UI instance
     const baseURL = '{{ .Site.BaseURL }}';
-    const pagefindPath = baseURL.endsWith('/') ? baseURL + '_pagefind/' : baseURL + '/_pagefind/';
+    const pagefindPath = baseURL.endsWith('/') ? baseURL + 'pagefind/' : baseURL + '/pagefind/';
 
     console.log('Initializing Pagefind with bundlePath:', pagefindPath);
 

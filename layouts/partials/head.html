@@ -72,14 +72,14 @@
 
 {{- if (eq .Layout `search`) -}}
   <!-- Pagefind CSS -->
-  <link href="{{ .Site.BaseURL }}_pagefind/pagefind-ui.css" rel="stylesheet">
+  <link href="{{ .Site.BaseURL }}pagefind/pagefind-ui.css" rel="stylesheet">
 
   <!-- Custom Search CSS to match previous UI -->
   {{ $searchCSS := resources.Get "css/search.css" | minify }}
   <link crossorigin="anonymous" href="{{ $searchCSS.RelPermalink }}" integrity="{{ $searchCSS.Data.Integrity }}" rel="stylesheet">
 
   <!-- Pagefind JS -->
-  <script src="{{ .Site.BaseURL }}_pagefind/pagefind-ui.js"></script>
+  <script src="{{ .Site.BaseURL }}pagefind/pagefind-ui.js"></script>
 
   {{ $basesearch := resources.Get "js/search.js" }}
   {{ $searchJSFile := printf "js/%s.search.js" .Language.Lang }}

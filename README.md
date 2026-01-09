@@ -154,25 +154,29 @@ npm install -g pagefind
 hugo
 
 # Generate Pagefind index (assuming Hugo outputs to 'public' directory)
-pagefind --source public
+# Using Pagefind 1.0+ syntax:
+pagefind --site public
 
 # Or use npx if you didn't install globally
-npx pagefind --source public
+npx pagefind --site public
 
-# For Japanese/CJK language sites, specify the language explicitly:
-pagefind --source public --force-language ja
+# For Japanese/CJK language sites, Pagefind should auto-detect from HTML lang attribute
+# If not detected properly, you can force it:
+pagefind --site public --force-language ja
 # Or for other languages: zh (Chinese), ko (Korean)
 ```
 
 4. The search page will be available at `/search` on your site.
 
 **Important Notes:**
-- You need to run `pagefind --source public` after each `hugo` build to update the search index with new or modified content.
-- **For Japanese/CJK language sites**: Use `--force-language ja` flag to ensure proper language detection and WASM support:
-  ```bash
-  pagefind --source public --force-language ja
+- You need to run `pagefind --site public` after each `hugo` build to update the search index with new or modified content.
+- **Pagefind 1.0+**: Uses `/pagefind/` directory (without underscore). This theme is compatible with Pagefind 1.0+.
+- **For Japanese/CJK language sites**: Pagefind should auto-detect the language from your HTML `lang` attribute. Ensure your Hugo config has:
+  ```toml
+  languageCode = "ja"  # or "ja-jp"
   ```
-  Without this, Japanese text may not be searchable. Verify that `public/_pagefind/wasm.ja.pagefind` exists (not `wasm.unknown.pagefind`).
+  The theme's `baseof.html` will output `<html lang="ja">` which Pagefind uses for language detection.
+- If language detection fails, verify that `public/pagefind/wasm.ja.pagefind` exists (not `wasm.unknown.pagefind`).
 
 ### TOC
 
