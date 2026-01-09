@@ -12,14 +12,12 @@
   "author": "matsuyoshi30",
   "license": "MIT",
   "dependencies": {
-    "flexsearch": "^0.7.21",
     "instant.page": "^3.0.0"
   },
   "devDependencies": {
     "eslint": "^7.23.0",
     "husky": "^9.0.11",
     "lint-staged": "^15.2.2",
-    "mark.js": "^8.11.1",
     "prettier": "^2.2.1",
     "prettier-eslint": "^12.0.0",
     "prettier-eslint-cli": "^5.0.1",

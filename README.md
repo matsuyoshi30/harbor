@@ -127,7 +127,11 @@ If you don't change them, your favicon and icon are my face :)
 
 ### Search entire blog posts
 
-You should make `search.md` in the `content` directory.
+This theme uses [Pagefind](https://pagefind.app/) for static search functionality.
+
+#### Setup
+
+1. Create `search.md` in the `content` directory:
 
 ```
 ---
@@ -135,6 +139,30 @@ title: "Search"
 layout: "search"
 ---
 ```
+
+2. Install Pagefind (if not already installed):
+
+```bash
+npm install -g pagefind
+# or use npx to run without installing
+```
+
+3. Build your Hugo site and generate the search index:
+
+```bash
+# Build your Hugo site
+hugo
+
+# Generate Pagefind index (assuming Hugo outputs to 'public' directory)
+pagefind --source public
+
+# Or use npx if you didn't install globally
+npx pagefind --source public
+```
+
+4. The search page will be available at `/search` on your site.
+
+**Note:** You need to run `pagefind --source public` after each `hugo` build to update the search index with new or modified content.
 
 ### TOC
 
