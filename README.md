@@ -158,11 +158,21 @@ pagefind --source public
 
 # Or use npx if you didn't install globally
 npx pagefind --source public
+
+# For Japanese/CJK language sites, specify the language explicitly:
+pagefind --source public --force-language ja
+# Or for other languages: zh (Chinese), ko (Korean)
 ```
 
 4. The search page will be available at `/search` on your site.
 
-**Note:** You need to run `pagefind --source public` after each `hugo` build to update the search index with new or modified content.
+**Important Notes:**
+- You need to run `pagefind --source public` after each `hugo` build to update the search index with new or modified content.
+- **For Japanese/CJK language sites**: Use `--force-language ja` flag to ensure proper language detection and WASM support:
+  ```bash
+  pagefind --source public --force-language ja
+  ```
+  Without this, Japanese text may not be searchable. Verify that `public/_pagefind/wasm.ja.pagefind` exists (not `wasm.unknown.pagefind`).
 
 ### TOC
 

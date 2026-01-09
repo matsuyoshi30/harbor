@@ -122,7 +122,14 @@ fi
 # Generate Pagefind index
 echo ""
 echo "📑 Generating Pagefind search index..."
-$PAGEFIND_CMD --source public
+
+# Check if site appears to be Japanese (basic heuristic)
+if grep -r '[ぁ-ん]' content/ 2>/dev/null | head -1 > /dev/null; then
+    echo "   Detected Japanese content, using --force-language ja"
+    $PAGEFIND_CMD --source public --force-language ja
+else
+    $PAGEFIND_CMD --source public
+fi
 
 if [ ! -d "public/_pagefind" ]; then
     echo "❌ Pagefind index generation failed"
