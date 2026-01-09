@@ -17,13 +17,18 @@
     }
 
     // Create Pagefind UI instance
+    const baseURL = '{{ .Site.BaseURL }}';
+    const pagefindPath = baseURL.endsWith('/') ? baseURL + '_pagefind/' : baseURL + '/_pagefind/';
+
+    console.log('Initializing Pagefind with bundlePath:', pagefindPath);
+
     const pagefind = new PagefindUI({
       element: '#searchContainer',
       showSubResults: true,
       showImages: false,
       excerptLength: 30,
       resetStyles: true,
-      bundlePath: '{{ .Site.BaseURL }}_pagefind/',
+      bundlePath: pagefindPath,
       translations: {
         placeholder: '{{ i18n "search" }}'
       }
