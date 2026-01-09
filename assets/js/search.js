@@ -22,7 +22,7 @@
       showSubResults: true,
       showImages: false,
       excerptLength: 15,
-      resetStyles: false,
+      resetStyles: true,
       bundlePath: '{{ .Site.BaseURL }}_pagefind/',
       translations: {
         placeholder: '{{ i18n "search" }}'
