@@ -69,9 +69,6 @@ footnoteReturnLinkContents = "^"
 [params.author]
   name = "Hugo Author"
 
-[outputs]
-  section = ["JSON", "HTML"]
-
 [[params.nav]]
   identifier = "about"
   name = "About"
@@ -127,7 +124,9 @@ If you don't change them, your favicon and icon are my face :)
 
 ### Search entire blog posts
 
-You should make `search.md` in the `content` directory.
+This theme uses [Pagefind](https://pagefind.app/) for search functionality.
+
+1. First, make `search.md` in the `content` directory:
 
 ```
 ---
@@ -135,6 +134,21 @@ title: "Search"
 layout: "search"
 ---
 ```
+
+2. After building your Hugo site, run Pagefind to index it:
+
+```bash
+hugo
+npm run build:search
+```
+
+Or if you're using a different output directory, specify it:
+
+```bash
+npx pagefind --site <your-output-directory>
+```
+
+The Pagefind index will be created in the `pagefind` directory inside your site's output folder.
 
 ### TOC
 
