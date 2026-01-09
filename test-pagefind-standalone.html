@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagefind Standalone Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .test-section {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        #searchContainer {
+            min-height: 100px;
+        }
+        .status {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 3px;
+        }
+        .success { background: #d4edda; color: #155724; }
+        .error { background: #f8d7da; color: #721c24; }
+        .info { background: #d1ecf1; color: #0c5460; }
+        pre {
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 3px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Pagefind Standalone Test</h1>
+
+    <div class="test-section">
+        <h2>Status Checks</h2>
+        <div id="status"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>Search Interface</h2>
+        <div id="searchContainer"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>Console Output</h2>
+        <pre id="console-output"></pre>
+    </div>
+
+    <script>
+        const statusDiv = document.getElementById('status');
+        const consoleOutput = document.getElementById('console-output');
+
+        function log(message, type = 'info') {
+            const timestamp = new Date().toLocaleTimeString();
+            const logLine = `[${timestamp}] ${message}\n`;
+            consoleOutput.textContent += logLine;
+            console.log(message);
+
+            const statusEl = document.createElement('div');
+            statusEl.className = `status ${type}`;
+            statusEl.textContent = message;
+            statusDiv.appendChild(statusEl);
+        }
+
+        // Check 1: Pagefind directory exists
+        fetch('/_pagefind/pagefind.js')
+            .then(response => {
+                if (response.ok) {
+                    log('✅ Pagefind JS file is accessible', 'success');
+                } else {
+                    log(`❌ Pagefind JS file returned ${response.status}`, 'error');
+                    log('Make sure to run: npx pagefind --source public', 'error');
+                }
+            })
+            .catch(err => {
+                log('❌ Cannot reach Pagefind files: ' + err.message, 'error');
+            });
+
+        // Check 2: Pagefind UI files
+        fetch('/_pagefind/pagefind-ui.js')
+            .then(response => {
+                if (response.ok) {
+                    log('✅ Pagefind UI JS file is accessible', 'success');
+                    return response.text();
+                } else {
+                    log(`❌ Pagefind UI JS returned ${response.status}`, 'error');
+                }
+            })
+            .then(content => {
+                if (content && content.includes('PagefindUI')) {
+                    log('✅ Pagefind UI contains PagefindUI class', 'success');
+                }
+            })
+            .catch(err => {
+                log('❌ Error loading Pagefind UI: ' + err.message, 'error');
+            });
+    </script>
+
+    <!-- Load Pagefind UI -->
+    <link href="/_pagefind/pagefind-ui.css" rel="stylesheet">
+    <script src="/_pagefind/pagefind-ui.js"></script>
+
+    <script>
+        // Wait a bit for Pagefind UI to load
+        setTimeout(() => {
+            const searchContainer = document.querySelector('#searchContainer');
+
+            if (!searchContainer) {
+                log('❌ Search container not found', 'error');
+                return;
+            }
+
+            if (typeof PagefindUI === 'undefined') {
+                log('❌ PagefindUI is not defined - script did not load', 'error');
+                log('Check browser console (F12) for 404 errors', 'info');
+                return;
+            }
+
+            log('✅ PagefindUI is available', 'success');
+
+            try {
+                const pagefind = new PagefindUI({
+                    element: '#searchContainer',
+                    showSubResults: true,
+                    showImages: false
+                });
+
+                log('✅ Pagefind UI initialized successfully', 'success');
+                log('Try typing a search term above', 'info');
+
+                // Add event listener to see when search happens
+                setTimeout(() => {
+                    const input = document.querySelector('.pagefind-ui__search-input');
+                    if (input) {
+                        log('✅ Search input field found', 'success');
+                        input.addEventListener('input', (e) => {
+                            if (e.target.value.length > 0) {
+                                log(`Searching for: "${e.target.value}"`, 'info');
+                            }
+                        });
+                    } else {
+                        log('⚠️ Search input field not found', 'error');
+                    }
+                }, 500);
+
+            } catch (error) {
+                log('❌ Error initializing Pagefind: ' + error.message, 'error');
+                log('Stack trace: ' + error.stack, 'error');
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
